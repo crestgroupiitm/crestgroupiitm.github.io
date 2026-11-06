@@ -1,0 +1,34 @@
+# CREST Research Laboratory - https://crestgroupiitm.github.io
+
+# Search engines and link-preview bots (WhatsApp, LinkedIn, Facebook, X) may read the pages.
+User-agent: *
+Allow: /
+Disallow: /tools/
+
+# Keep photos of people and events out of image search. The share card stays allowed.
+User-agent: Googlebot-Image
+Allow: /Assests/og-image.jpg
+Disallow: /Assests/
+
+# AI-training and data-harvesting crawlers: not allowed anywhere.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: PetalBot
+User-agent: Timpibot
+User-agent: img2dataset
+Disallow: /
+
+Sitemap: https://crestgroupiitm.github.io/sitemap.xml

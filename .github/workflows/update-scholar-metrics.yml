@@ -1,0 +1,45 @@
+name: Update Google Scholar metrics
+
+# Refreshes the citation count and h-index on index.html, pi.html and
+# publications.html. Runs on the 1st of each month, and on demand from the
+# Actions tab. If Scholar can't be read the job leaves every file untouched
+# and still succeeds — a failed fetch must never break the site or the build.
+
+on:
+  schedule:
+    - cron: "0 3 1 * *" # 03:00 UTC on the 1st of every month
+  workflow_dispatch: # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Only needed for the free fallback path. Harmless when SERPAPI_API_KEY is set.
+      - name: Install scraper fallback
+        run: pip install --quiet scholarly
+
+      - name: Refresh metrics
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: python tools/update_scholar_metrics.py
+
+      - name: Commit if anything changed
+        run: |
+          if [[ -z "$(git status --porcelain -- index.html pi.html publications.html)" ]]; then
+            echo "Metrics already current — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html pi.html publications.html
+          git commit -m "Update Google Scholar citation metrics"
+          git push
