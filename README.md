@@ -22,7 +22,7 @@ Live at: **https://crestgroupiitm.github.io**
 2. Verification method **HTML tag**: copy the `<meta name="google-site-verification" ...>` tag,
    paste it into `index.html` inside `<head>` (right below `<meta charset="UTF-8">`), commit, then click *Verify*.
 3. **Sitemaps** → submit `sitemap.xml`.
-4. **URL inspection** → paste the home page URL → *Request indexing*. Repeat for `pi.html` and `publications.html`.
+4. **URL inspection** → paste the home page URL → *Request indexing*. Repeat for `/pi` and `/publications`.
 5. Optional: do the same in Bing Webmaster Tools (it can import from Search Console in one click).
 
 Already built in: page titles and descriptions, canonical URLs, sitemap, robots.txt,

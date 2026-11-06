@@ -10,6 +10,15 @@ if (window.top !== window.self) {
     catch (e) { document.documentElement.style.display = 'none'; }
 }
 
+/* 0b. CLEAN ADDRESSES: the site links to /facilities, not /facilities.html.
+   A visitor arriving through an old .html link (a bookmark, an older search
+   result) sees the clean address too. Only the address bar changes; the page
+   is not reloaded. Skipped when a file is opened straight from disk. */
+if (/^https?:$/.test(location.protocol) && /\.html$/.test(location.pathname)) {
+    const cleanPath = location.pathname.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '');
+    history.replaceState(history.state, '', cleanPath + location.search + location.hash);
+}
+
 /* 1. PAGE LOADER */
 window.addEventListener('load', () => {
     const loader = document.getElementById('page-loader');
