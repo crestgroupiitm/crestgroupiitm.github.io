@@ -1,0 +1,108 @@
+/* Facilities page: built on home.css (body.hx). Restyles the existing
+   instrument cards (fac-card / equip-card) and filters in the new look. */
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+body.hx-fc .fc-x-hero { padding: clamp(120px, 13vw, 170px) 0 clamp(24px, 3vw, 40px); }
+body.hx-fc .fc-x-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+body.hx-fc .fc-x-title {
+  margin: 16px 0 0; max-width: 12ch; font-weight: 700; font-size: clamp(48px, 6.6vw, 96px);
+  line-height: 0.98; letter-spacing: -0.045em; color: var(--ink);
+}
+body.hx-fc .fc-x-title em { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -0.02em; color: var(--gold); }
+body.hx-fc .fc-x-lead { margin: 24px 0 0; max-width: 54ch; font-size: 18px; line-height: 1.6; color: #4a4a4f; }
+body.hx-fc .fc-x-hero .hx-actions { margin-top: 30px; justify-content: flex-start; }
+body.hx-fc .fc-x-hero-photo {
+  position: relative; margin: 0; overflow: hidden; border-radius: 36px; background: var(--panel);
+  box-shadow: 0 1px 2px rgba(29, 29, 31, 0.04), 0 40px 80px -50px rgba(29, 29, 31, 0.5);
+}
+body.hx-fc .fc-x-hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+body.hx-fc .fc-x-hero-photo figcaption,
+body.hx-fc .fac-card-tag {
+  position: absolute; left: 16px; bottom: 16px; max-width: calc(100% - 32px); padding: 8px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  font: 600 13px/1.25 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink);
+  box-shadow: 0 6px 18px -10px rgba(29, 29, 31, 0.4); border: 0;
+}
+body.hx-fc .fc-x-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: clamp(40px, 5vw, 64px); }
+body.hx-fc .fc-x-stat {
+  display: flex; flex-direction: column; gap: 10px; padding: 24px 26px;
+  background: #fff; border: 1px solid var(--hair); border-radius: 26px;
+  box-shadow: 0 1px 2px rgba(29, 29, 31, 0.04), 0 14px 34px -24px rgba(29, 29, 31, 0.25);
+}
+body.hx-fc .fc-x-stat strong { font: 400 clamp(44px, 4.4vw, 64px)/0.95 var(--serif); letter-spacing: -0.02em; color: var(--ink); }
+body.hx-fc .fc-x-stat span { font: 600 15px/1.3 var(--sans); color: var(--muted); }
+body.hx-fc .fc-x-stat--lead {
+  background: radial-gradient(120% 90% at 100% 0%, rgba(138, 109, 63, 0.10), transparent 60%), linear-gradient(180deg, #fbf8f2, var(--panel-warm));
+  border-color: #ece3d2;
+}
+
+/* ── Catalogue ────────────────────────────────────────────────────────── */
+body.hx-fc .fac-body { background: #fff; }
+body.hx-fc .fac-body-header { max-width: none; }
+body.hx-fc .fac-body-header .hx-h2 { margin: 0; font-family: var(--sans); font-weight: 700; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.04em; color: var(--ink); }
+body.hx-fc .fac-body-header > p:not(.hx-kicker) { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+
+body.hx-fc .fac-filters {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 clamp(32px, 4vw, 48px); padding: 8px;
+  width: fit-content; max-width: 100%; border-radius: 999px; background: var(--panel);
+}
+body.hx-fc .team-filter {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 0; border-radius: 999px;
+  background: transparent; box-shadow: none; font: 500 14.5px/1.2 var(--sans); letter-spacing: 0; text-transform: none;
+  color: var(--muted); cursor: pointer; transition: background 0.3s, color 0.3s;
+}
+body.hx-fc .team-filter:hover { color: var(--ink); background: rgba(255, 255, 255, 0.7); }
+body.hx-fc .team-filter.active { color: var(--ink); background: #fff; box-shadow: 0 6px 16px -12px rgba(29, 29, 31, 0.45); }
+body.hx-fc .fac-filter-count { font: 400 16px/1 var(--serif); color: var(--gold); background: none; padding: 0; }
+
+body.hx-fc .tm-group { margin-bottom: clamp(48px, 5vw, 72px); }
+body.hx-fc .tm-group-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
+body.hx-fc .tm-group-head h3 { margin: 0; font: 700 clamp(24px, 2.2vw, 32px)/1.2 var(--sans); letter-spacing: -0.025em; color: var(--ink); white-space: normal; }
+body.hx-fc .tm-group-head::after { content: ""; flex: 1; height: 1px; align-self: center; background: linear-gradient(90deg, #e2d6bf, transparent); }
+body.hx-fc .tm-group-count { order: 3; font: 400 24px/1 var(--serif); color: var(--gold); }
+
+body.hx-fc .fac-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+body.hx-fc .fac-card {
+  display: flex; flex-direction: column; overflow: hidden; padding: 10px; margin: 0;
+  background: #fff; border: 1px solid var(--hair); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(29, 29, 31, 0.04), 0 18px 40px -30px rgba(29, 29, 31, 0.28);
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), border-color 0.3s;
+}
+body.hx-fc .fac-card:hover { transform: translateY(-4px); border-color: #e2d6bf; box-shadow: 0 1px 2px rgba(29, 29, 31, 0.04), 0 30px 56px -30px rgba(29, 29, 31, 0.34); }
+body.hx-fc .fac-card-img { position: relative; overflow: hidden; height: auto; aspect-ratio: 4 / 3; border-radius: 20px; background: var(--panel); }
+body.hx-fc .fac-card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+body.hx-fc .fac-card:hover .fac-card-img img { transform: scale(1.04); }
+body.hx-fc .fac-card-img::after { content: none; }
+body.hx-fc .fac-card-tag { top: auto; right: auto; left: 12px; bottom: 12px; z-index: 2; font-size: 12px; padding: 6px 12px; }
+body.hx-fc .fac-card-body { padding: 18px 14px 14px; }
+body.hx-fc .fac-card-name { margin: 0; font: 600 18.5px/1.3 var(--sans); letter-spacing: -0.015em; color: var(--ink); }
+body.hx-fc .fac-card-desc { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* access panel */
+body.hx-fc .fac-access {
+  display: block; margin-top: clamp(24px, 3vw, 40px); padding: clamp(28px, 4vw, 52px);
+  border: 1px solid #ece3d2; border-radius: 36px; box-shadow: none;
+  background: radial-gradient(110% 80% at 100% 0%, rgba(138, 109, 63, 0.12), transparent 60%), linear-gradient(180deg, #fbf8f2, var(--panel-warm));
+}
+body.hx-fc .fac-access::before, body.hx-fc .fac-access::after { content: none; }
+body.hx-fc .fac-access h3 { margin: 12px 0 0; font: 700 clamp(30px, 3.4vw, 48px)/1.05 var(--sans); letter-spacing: -0.035em; color: var(--ink); }
+body.hx-fc .fac-access p:not(.hx-kicker) { margin: 16px 0 26px; max-width: 64ch; font-size: 17px; line-height: 1.6; color: #4a4a4f; }
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  body.hx-fc .fc-x-hero-grid { grid-template-columns: minmax(0, 1fr); }
+  body.hx-fc .fac-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.hx-fc .fc-x-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  body.hx-fc .fc-x-hero { padding-top: 104px; }
+  body.hx-fc .fc-x-hero-photo { border-radius: 24px; }
+  body.hx-fc .fac-grid { grid-template-columns: minmax(0, 1fr); }
+  body.hx-fc .fac-filters { border-radius: 22px; }
+  body.hx-fc .fc-x-stat { padding: 20px; border-radius: 22px; }
+  body.hx-fc .fac-access { border-radius: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.hx-fc .fac-card, body.hx-fc .fac-card-img img { transition: none; }
+  body.hx-fc .fac-card:hover, body.hx-fc .fac-card:hover .fac-card-img img { transform: none; }
+}

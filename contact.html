@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="robots" content="index, follow, noai, noimageai">
-  <meta name="theme-color" content="#0b0f1a">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://crestgroupiitm.github.io/contact">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,34 +32,31 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Shared Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="contact.css">
+  <script src="js/pages/home-head.js"></script>
 </head>
-<body>
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-
-  <!-- Ambient Particles Background -->
-  <div id="particles-js"></div>
+<body class="hx hx-ct">
+  <a class="hx-skip" href="#main">Skip to content</a>
 
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar--on-dark">
+  <nav class="navbar navbar-alt hx-nav">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <i class="fa-solid fa-atom"></i>
-        <span>CREST Research Laboratory</span>
+      <a href="/" class="logo" aria-label="CREST Research Laboratory, home">
+        <span>CREST</span><span class="hx-logo-sub">Research Laboratory</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <span class="mobile-nav-logo"><i class="fa-solid fa-atom"></i> CREST Lab</span>
+        <span class="mobile-nav-logo">Menu</span>
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         <li><a href="/">Home</a></li>
         <li><a href="/pi">Principal Investigator</a></li>
@@ -69,257 +66,242 @@
         <li><a href="/publications">Publications</a></li>
         <li><a href="/facilities">Facilities</a></li>
         <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/contact" class="active">Contact</a></li>
+        <li><a href="/contact" class="active" aria-current="page">Contact</a></li>
+        <li class="mobile-nav-extra">
+          <p>Get in touch</p>
+          <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a>
+          <a href="tel:+914422574187">+91 44 2257 4187</a>
+        </li>
       </ul>
-      <div class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- ═══════════ 1. DARK HERO + DIRECT ACTIONS ═══════════ -->
-  <section class="con-hero">
-    <div class="con-hero-ambient" aria-hidden="true"></div>
-    <div class="container">
-      <div class="con-hero-inner">
-        <span class="section-kicker section-kicker--light reveal">Join &amp; Connect</span>
-        <h1 class="con-hero-title reveal">Build the future of <em>sustainable energy</em> with us</h1>
-        <p class="con-hero-sub reveal">We welcome motivated researchers, collaborative partners, and enquiries from prospective students and institutions.</p>
-        <div class="con-hero-actions reveal">
-          <a href="#" class="btn-gold con-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Enquiry%20-%20CREST%20Laboratory"></a>
-          <a href="tel:+914422574187" class="btn-ghost btn-ghost--on-dark"><i class="fa-solid fa-phone"></i> +91-44-2257-4187</a>
-          <a href="#location" class="btn-ghost btn-ghost--on-dark"><i class="fa-solid fa-location-dot"></i> Find us</a>
+  <main id="main">
+
+    <!-- 1. Hero -->
+    <section class="ct-x-hero" aria-labelledby="ct-title">
+      <div class="hx-wrap">
+        <div data-reveal>
+          <p class="hx-kicker">Join &amp; connect</p>
+          <h1 id="ct-title" class="ct-x-title">Build the future of <em>sustainable energy</em> with us.</h1>
+          <p class="ct-x-lead">We welcome motivated researchers, collaborative partners, and enquiries from prospective students and institutions.</p>
+        </div>
+        <ul class="ct-x-quick" data-reveal>
+          <li>
+            <span class="ct-x-quick-k">Email</span>
+            <a href="#" class="ct-x-quick-v email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Enquiry%20-%20CREST%20Laboratory"></a>
+          </li>
+          <li>
+            <span class="ct-x-quick-k">Phone</span>
+            <a href="tel:+914422574187" class="ct-x-quick-v">+91 44 2257 4187</a>
+          </li>
+          <li>
+            <span class="ct-x-quick-k">Visit</span>
+            <a href="#location" class="ct-x-quick-v">IIT Madras, Chennai</a>
+          </li>
+          <li>
+            <span class="ct-x-quick-k">Hours</span>
+            <span class="ct-x-quick-v">Mon&ndash;Fri, 9:00&ndash;5:30 IST</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Open positions -->
+    <section class="hx-section" id="positions">
+      <div class="hx-wrap">
+        <header class="hx-section-head" data-reveal>
+          <p class="hx-kicker">Recruitment</p>
+          <h2 class="hx-h2">Opportunities to join the CREST Laboratory.</h2>
+          <p class="hx-section-lead">Positions are open on a rolling basis. Write directly to Prof. Vinu with a statement of interest, a CV, and relevant academic transcripts.</p>
+        </header>
+        <p class="ct-x-intro" data-reveal>The CREST Laboratory actively seeks talented individuals at every career stage, from undergraduate summer interns to experienced postdoctoral researchers. We are committed to rigorous, impactful research in sustainable thermochemical engineering.</p>
+        <div class="ct-x-roles">
+          <article class="ct-x-role" data-reveal>
+            <p class="ct-x-role-tag">Doctoral</p>
+            <h3>Ph.D. scholars</h3>
+            <p>We invite applications from highly motivated candidates with a strong background in chemical engineering, chemistry, or related disciplines. Research areas span thermochemical conversion, catalysis, photocatalysis, and advanced materials for sustainability.</p>
+            <div class="ct-x-apply">
+              <span>Apply: write to</span>
+              <a href="#" class="ct-x-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="PhD%20Application%20-%20CREST%20Laboratory"></a>
+            </div>
+          </article>
+          <article class="ct-x-role ct-x-role--warm" data-reveal>
+            <p class="ct-x-role-tag">Postdoctoral</p>
+            <h3>Postdoctoral positions</h3>
+            <p>Opportunities exist under the Institute Postdoctoral Fellowship (IPDF), National Postdoctoral Fellowship (NPDF), and Women Scientist schemes (DST WOS-A/B). Research and Project Associate positions are advertised via the ICSR Job Portal.</p>
+            <ul class="hx-chips ct-x-chips">
+              <li>IITM Institute PDF (IPDF)</li>
+              <li>SERB National PDF (NPDF)</li>
+              <li>DST Women Scientist Schemes (WOS-A / WOS-B)</li>
+              <li>Other national &amp; international fellowships</li>
+            </ul>
+            <div class="ct-x-apply">
+              <span>Apply: write to</span>
+              <a href="#" class="ct-x-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Postdoctoral%20Application%20-%20CREST%20Laboratory"></a>
+              <a href="https://icsrstaff.iitm.ac.in/careers/" target="_blank" rel="noopener noreferrer" class="ct-x-ext">ICSR Job Portal</a>
+            </div>
+          </article>
+          <article class="ct-x-role" data-reveal>
+            <p class="ct-x-role-tag">Internship</p>
+            <h3>Summer research programme</h3>
+            <p>Undergraduate and Masters students are welcome to apply for short-term summer research internships. Projects are available in thermochemical reactor engineering, catalyst synthesis, computational modelling, and product characterisation. Candidates from IITs, NITs, and other national institutions are encouraged to apply.</p>
+            <div class="ct-x-apply">
+              <span>Apply: write to</span>
+              <a href="#" class="ct-x-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Summer%20Internship%20Application%20-%20CREST%20Laboratory"></a>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════ 2. OPEN POSITIONS ═══════════ -->
-  <section class="con-positions section-padding" id="positions">
-    <div class="container">
-
-      <div class="con-section-header reveal">
-        <span class="section-kicker">Recruitment</span>
-        <h2>Opportunities to join the CREST Laboratory</h2>
-        <p>The CREST Laboratory actively seeks talented individuals at every career stage, from undergraduate summer interns to experienced postdoctoral researchers. We are committed to rigorous, impactful research in sustainable thermochemical engineering.</p>
-        <p>Positions are open on a rolling basis. Motivated candidates are encouraged to write directly to Prof. Vinu with a statement of interest, a CV, and relevant academic transcripts.</p>
-      </div>
-
-      <div class="con-role-grid">
-
-        <article class="con-role-card reveal">
-          <div class="con-role-medallion"><i class="fa-solid fa-user-graduate"></i></div>
-          <span class="con-role-tag">Doctoral</span>
-          <h3>PhD Scholars</h3>
-          <p>We invite applications from highly motivated candidates with a strong background in chemical engineering, chemistry, or related disciplines. Research areas span thermochemical conversion, catalysis, photocatalysis, and advanced materials for sustainability.</p>
-          <div class="con-role-cta">
-            <span class="con-role-cta-label">Apply: write to</span>
-            <a href="#" class="btn-primary con-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="PhD%20Application%20-%20CREST%20Laboratory"></a>
-          </div>
-        </article>
-
-        <article class="con-role-card reveal">
-          <div class="con-role-medallion"><i class="fa-solid fa-flask"></i></div>
-          <span class="con-role-tag">Postdoctoral</span>
-          <h3>Postdoctoral Positions</h3>
-          <p>Opportunities exist under the Institute Postdoctoral Fellowship (IPDF), National Postdoctoral Fellowship (NPDF), and Women Scientist schemes (DST WOS-A/B). Research and Project Associate positions are advertised via the ICSR Job Portal.</p>
-          <ul class="con-role-list">
-            <li>IITM Institute PDF (IPDF)</li>
-            <li>SERB National PDF (NPDF)</li>
-            <li>DST Women Scientist Schemes (WOS-A / WOS-B)</li>
-            <li>Other national &amp; international fellowships</li>
-          </ul>
-          <div class="con-role-cta">
-            <span class="con-role-cta-label">Apply: write to</span>
-            <a href="#" class="btn-primary con-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Postdoctoral%20Application%20-%20CREST%20Laboratory"></a>
-            <a href="https://icsrstaff.iitm.ac.in/careers/" target="_blank" rel="noopener noreferrer" class="con-role-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> ICSR Job Portal</a>
-          </div>
-        </article>
-
-        <article class="con-role-card reveal">
-          <div class="con-role-medallion"><i class="fa-solid fa-seedling"></i></div>
-          <span class="con-role-tag">Internship</span>
-          <h3>Summer Research Programme</h3>
-          <p>Undergraduate and Masters students are welcome to apply for short-term summer research internships. Projects are available in thermochemical reactor engineering, catalyst synthesis, computational modelling, and product characterisation. Candidates from IITs, NITs, and other national institutions are encouraged to apply.</p>
-          <div class="con-role-cta">
-            <span class="con-role-cta-label">Apply: write to</span>
-            <a href="#" class="btn-primary con-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Summer%20Internship%20Application%20-%20CREST%20Laboratory"></a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ 3. COLLABORATIONS (dark) ═══════════ -->
-  <section class="con-collab" id="collaborations">
-    <div class="con-collab-ambient" aria-hidden="true"></div>
-    <div class="container">
-
-      <div class="con-collab-header reveal">
-        <span class="section-kicker section-kicker--light">Partnerships</span>
-        <h2>Open to collaborations across domains and geographies</h2>
-        <p>The CREST Laboratory actively pursues research partnerships with academic groups, industrial organisations, and international consortia that share a commitment to sustainable chemical engineering and thermochemical innovation. We engage in joint project proposals, researcher exchanges, co-supervised doctoral programs, and industry-sponsored research. Prospective collaborators are welcome to reach out with a brief description of the proposed partnership.</p>
-      </div>
-
-      <div class="con-collab-grid">
-
-        <div class="con-collab-panel reveal">
-          <div class="con-collab-panel-head">
-            <i class="fa-solid fa-landmark"></i>
-            <h3>Domestic Collaborations</h3>
-          </div>
-          <p>The laboratory is open to academic and industry collaborations within India. We welcome joint research proposals with IITs, NITs, national laboratories (CSIR, DRDO, ISRO), and corporate R&amp;D divisions in the energy, chemicals, and materials sectors.</p>
-          <ul class="con-collab-list">
-            <li>Academic Institutes</li>
-            <li>National Laboratories</li>
-            <li>Industry R&amp;D</li>
-            <li>Government Agencies</li>
-          </ul>
-          <div class="con-collab-cta">
-            <span class="con-collab-cta-label">Propose a collaboration: write to</span>
-            <a href="#" class="btn-gold con-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Domestic%20Collaboration%20Enquiry%20-%20CREST%20Laboratory"></a>
+    <!-- 3. Collaborations -->
+    <section class="hx-section ct-x-collab-wrap" id="collaborations">
+      <div class="hx-wrap">
+        <div class="ct-x-collab" data-reveal>
+          <p class="hx-kicker">Partnerships</p>
+          <h2 class="hx-h2">Open to collaborations across domains and geographies.</h2>
+          <p class="ct-x-collab-lead">The CREST Laboratory actively pursues research partnerships with academic groups, industrial organisations, and international consortia that share a commitment to sustainable chemical engineering and thermochemical innovation. We engage in joint project proposals, researcher exchanges, co-supervised doctoral programs, and industry-sponsored research. Prospective collaborators are welcome to reach out with a brief description of the proposed partnership.</p>
+          <div class="ct-x-collab-grid">
+            <div class="ct-x-panel">
+              <p class="ct-x-role-tag">Within India</p>
+              <h3>Domestic collaborations</h3>
+              <p>The laboratory is open to academic and industry collaborations within India. We welcome joint research proposals with IITs, NITs, national laboratories (CSIR, DRDO, ISRO), and corporate R&amp;D divisions in the energy, chemicals, and materials sectors.</p>
+              <ul class="hx-chips ct-x-chips"><li>Academic Institutes</li><li>National Laboratories</li><li>Industry R&amp;D</li><li>Government Agencies</li></ul>
+              <div class="ct-x-apply">
+                <span>Propose a collaboration: write to</span>
+                <a href="#" class="ct-x-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Domestic%20Collaboration%20Enquiry%20-%20CREST%20Laboratory"></a>
+              </div>
+            </div>
+            <div class="ct-x-panel">
+              <p class="ct-x-role-tag">Worldwide</p>
+              <h3>International collaborations</h3>
+              <p>We are open to participation in EU Horizon collaborative research projects and other international research partnerships. The laboratory has a track record of productive research exchanges and is well-positioned to contribute to consortia focused on sustainable fuels, circular economy, and advanced reactor engineering.</p>
+              <ul class="hx-chips ct-x-chips"><li>EU Horizon Projects</li><li>Researcher Exchange</li><li>Joint PhDs</li><li>Bilateral Projects</li></ul>
+              <div class="ct-x-apply">
+                <span>Propose a collaboration: write to</span>
+                <a href="#" class="ct-x-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="International%20Collaboration%20Enquiry%20-%20CREST%20Laboratory"></a>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="con-collab-panel reveal">
-          <div class="con-collab-panel-head">
-            <i class="fa-solid fa-earth-europe"></i>
-            <h3>International Collaborations</h3>
-          </div>
-          <p>We are open to participation in EU Horizon collaborative research projects and other international research partnerships. The laboratory has a track record of productive research exchanges and is well-positioned to contribute to consortia focused on sustainable fuels, circular economy, and advanced reactor engineering.</p>
-          <ul class="con-collab-list">
-            <li>EU Horizon Projects</li>
-            <li>Researcher Exchange</li>
-            <li>Joint PhDs</li>
-            <li>Bilateral Projects</li>
-          </ul>
-          <div class="con-collab-cta">
-            <span class="con-collab-cta-label">Propose a collaboration: write to</span>
-            <a href="#" class="btn-gold con-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="International%20Collaboration%20Enquiry%20-%20CREST%20Laboratory"></a>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════ 4. CONTACT & LOCATION ═══════════ -->
-  <section id="location" class="con-location section-padding">
-    <div class="container">
-
-      <div class="con-section-header reveal">
-        <span class="section-kicker">Reach Us</span>
-        <h2>Contact &amp; Location</h2>
-        <p>Reach out to the CREST Laboratory directly. We respond to enquiries on a best-effort basis during working hours.</p>
-      </div>
-
-      <div class="con-location-grid">
-
-        <!-- Ink contact card -->
-        <div class="con-card reveal">
-          <div class="con-card-row">
-            <h4 class="con-card-label">Mailing Address</h4>
-            <p class="con-card-value">
-              Prof. Vinu Ravikrishnan<br>
-              Department of Chemical Engineering<br>
-              Indian Institute of Technology Madras<br>
-              Chennai &ndash; 600036, Tamil Nadu, India
-            </p>
+    <!-- 4. Contact and location -->
+    <section id="location" class="hx-section ct-x-location">
+      <div class="hx-wrap">
+        <header class="hx-section-head" data-reveal>
+          <p class="hx-kicker">Reach us</p>
+          <h2 class="hx-h2">Contact &amp; location.</h2>
+          <p class="hx-section-lead">Reach out to the CREST Laboratory directly. We respond to enquiries on a best-effort basis during working hours.</p>
+        </header>
+        <div class="ct-x-loc-grid" data-reveal>
+          <div class="ct-x-card">
+            <dl>
+              <div><dt>Mailing address</dt><dd>Prof. Vinu Ravikrishnan<br>Department of Chemical Engineering<br>Indian Institute of Technology Madras<br>Chennai 600036, Tamil Nadu, India</dd></div>
+              <div><dt>Email</dt><dd><a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></dd></div>
+              <div><dt>Phone</dt><dd><a href="tel:+914422574187">+91 44 2257 4187</a></dd></div>
+              <div><dt>Office hours</dt><dd>Monday to Friday, 9:00 AM to 5:30 PM IST<br><span class="ct-x-note">Appointments recommended</span></dd></div>
+              <div><dt>On the web</dt><dd><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a><br><a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Madras</a></dd></div>
+            </dl>
+            <ul class="ct-x-profiles">
+              <li><a href="https://scholar.google.com/citations?hl=en&amp;user=gAIc9hEAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+              <li><a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+              <li><a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+              <li><a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
           </div>
-
-          <div class="con-card-row">
-            <h4 class="con-card-label">Email</h4>
-            <p class="con-card-value"><a href="#" class="con-card-mail email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></p>
-          </div>
-
-          <div class="con-card-row">
-            <h4 class="con-card-label">Phone</h4>
-            <p class="con-card-value"><a href="tel:+914422574187">+91-44-2257-4187</a></p>
-          </div>
-
-          <div class="con-card-row">
-            <h4 class="con-card-label">Office Hours</h4>
-            <p class="con-card-value">
-              Monday to Friday<br>
-              9:00 AM to 5:30 PM IST<br>
-              <span class="con-card-note">Appointments recommended</span>
-            </p>
-          </div>
-
-          <div class="con-card-row">
-            <h4 class="con-card-label">On the Web</h4>
-            <p class="con-card-value">
-              <a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a><br>
-              <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Madras</a>
-            </p>
-          </div>
-
-          <div class="con-card-socials">
-            <a href="https://scholar.google.co.in/citations?user=gAIc9hEAAAAJ&amp;hl=th" target="_blank" rel="noopener noreferrer" title="Google Scholar" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-            <a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer" title="ORCID" aria-label="ORCID"><i class="fa-solid fa-id-card"></i></a>
-            <a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer" title="ResearchGate" aria-label="ResearchGate"><i class="fa-solid fa-flask"></i></a>
-            <a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          </div>
-        </div>
-
-        <!-- Map -->
-        <div class="con-map-wrap reveal">
-          <div class="con-map-frame">
+          <figure class="ct-x-map">
             <iframe
               src="https://www.openstreetmap.org/export/embed.html?bbox=80.2280%2C12.9850%2C80.2450%2C13.0000&amp;layer=mapnik&amp;marker=12.9915%2C80.2337"
               title="Map of IIT Madras campus"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <p class="con-map-caption">Department of Chemical Engineering, IIT Madras campus</p>
-          <div class="con-map-links">
-            <a href="https://maps.google.com/?q=IIT+Madras+Department+of+Chemical+Engineering" target="_blank" rel="noopener noreferrer" class="con-role-link"><i class="fa-solid fa-map-location-dot"></i> View on Google Maps</a>
-            <a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer" class="con-role-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Department Website</a>
-          </div>
+            <figcaption>
+              <span>Department of Chemical Engineering, IIT Madras campus</span>
+              <span class="ct-x-map-links">
+                <a href="https://maps.google.com/?q=IIT+Madras+Department+of+Chemical+Engineering" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department website</a>
+              </span>
+            </figcaption>
+          </figure>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <canvas id="footer-canvas"></canvas>
-    <div class="container footer-content">
-
-      <div class="footer-info">
-        <h2><i class="fa-solid fa-atom"></i> CREST Research Lab</h2>
-        <p>Chemical Reaction Engineering in Sustainable Transformations Laboratory has guided high-profile researchers under government and industrial support within the prestigious Indian Institute of Technology Madras ecosystem.</p>
-      </div>
-
-      <div class="footer-address">
-        <h4 class="footer-col-title">Mailing Address</h4>
-        <p>
-          Prof. Vinu Ravikrishnan<br>
-          Department of Chemical Engineering,<br>
-          Indian Institute of Technology Madras,<br>
-          Chennai &ndash; 600036, Tamil Nadu, India.
-        </p>
-      </div>
-
-      <div class="footer-contact">
-        <h4 class="footer-col-title">Contact Details</h4>
-        <p><i class="fa-solid fa-envelope"></i> <span class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></span></p>
-        <p><i class="fa-solid fa-phone"></i> +91-44-2257-4187</p>
-        <p><i class="fa-solid fa-clock"></i> Mon to Fri &nbsp;(9 AM &ndash; 5:30 PM)</p>
-      </div>
-
+  <footer class="hx-footer">
+    <div class="hx-currents">
+      <canvas id="footer-canvas" aria-hidden="true"></canvas>
+      <p class="hx-footer-mark"><span>Residue</span> <em>to</em> <span>resource.</span></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 CREST Research Laboratory. All Rights Reserved.</p>
-      <p class="footer-credit">Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Academic Digital Services</a></p>
+    <div class="hx-wrap">
+      <div class="hx-footer-card">
+        <div class="hx-footer-brand">
+          <img class="hx-footer-seal" src="images/IIT_Madras_Logo.svg" width="300" height="300" alt="IIT Madras logo" loading="lazy" decoding="async">
+          <p class="hx-footer-name">CREST Research Laboratory</p>
+          <p class="hx-footer-about"><span class="hx-acronym-inline"><b class="hx-acr">C</b>hemical <b class="hx-acr">R</b>eaction <b class="hx-acr">E</b>ngineering in <b class="hx-acr">S</b>ustainable <b class="hx-acr">T</b>ransformations</span>, Department of Chemical Engineering, Indian Institute of Technology Madras.</p>
+          <a class="hx-btn" href="/contact">Positions and contact</a>
+        </div>
+        <nav class="hx-footer-col hx-footer-explore" aria-label="Explore">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/pi">Principal Investigator</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/thrust-areas">Thrust Areas</a></li>
+            <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact &amp; Positions</a></li>
+          </ul>
+        </nav>
+        <div class="hx-footer-col">
+          <h2>Visit</h2>
+          <address>
+            Prof. Vinu Ravikrishnan<br>
+            Department of Chemical Engineering<br>
+            Indian Institute of Technology Madras<br>
+            Chennai 600036, Tamil Nadu, India
+          </address>
+        </div>
+        <div class="hx-footer-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></li>
+            <li><a href="tel:+914422574187">+91 44 2257 4187</a></li>
+            <li class="hx-footer-hours">Monday to Friday, 9 AM to 5:30 PM</li>
+          </ul>
+        </div>
+        <div class="hx-footer-profiles">
+          <h2>Profiles</h2>
+          <ul>
+            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=gAIc9hEAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+            <li><a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hx-footer-legal">
+        <p>&copy; 2026 CREST Research Laboratory, IIT Madras.</p>
+        <p><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a> <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">IIT Madras</a> <span>Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Dr. Hariprasad Narayanan</a></span></p>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/vendor/particles.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <script src="js/vendor/scrollreveal.min.js"></script>
   <script src="script.js"></script>
+  <script src="js/pages/home.js"></script>
 </body>
 </html>

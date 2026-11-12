@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="robots" content="index, follow, noai, noimageai">
-  <meta name="theme-color" content="#0b0f1a">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://crestgroupiitm.github.io/gallery">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -31,29 +31,27 @@
   <!-- /Open Graph -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="gallery.css">
+  <script src="js/pages/home-head.js"></script>
 </head>
-<body>
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-
-  <div id="particles-js"></div>
+<body class="hx hx-gl">
+  <a class="hx-skip" href="#main">Skip to content</a>
 
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar--on-dark">
+  <nav class="navbar navbar-alt hx-nav">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <i class="fa-solid fa-atom"></i>
-        <span>CREST Research Laboratory</span>
+      <a href="/" class="logo" aria-label="CREST Research Laboratory, home">
+        <span>CREST</span><span class="hx-logo-sub">Research Laboratory</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <span class="mobile-nav-logo"><i class="fa-solid fa-atom"></i> CREST Lab</span>
+        <span class="mobile-nav-logo">Menu</span>
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         <li><a href="/">Home</a></li>
         <li><a href="/pi">Principal Investigator</a></li>
@@ -62,47 +60,46 @@
         <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
         <li><a href="/publications">Publications</a></li>
         <li><a href="/facilities">Facilities</a></li>
-        <li><a href="/gallery" class="active">Gallery</a></li>
+        <li><a href="/gallery" class="active" aria-current="page">Gallery</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li class="mobile-nav-extra">
+          <p>Get in touch</p>
+          <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a>
+          <a href="tel:+914422574187">+91 44 2257 4187</a>
+        </li>
       </ul>
-      <div class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- ═══════════ 1. DARK HERO (slim) ═══════════ -->
-  <section class="gal-hero">
-    <div class="gal-hero-ambient" aria-hidden="true"></div>
-    <div class="container">
-      <div class="gal-hero-inner">
-        <span class="section-kicker section-kicker--light reveal">Life at CREST</span>
-        <h1 class="gal-hero-title reveal">Moments &amp; <em>milestones</em></h1>
-        <p class="gal-hero-sub reveal">Conferences and seminars, collaborative visits, group outings, and the moments that define life in the CREST Laboratory over the years.</p>
-        <div class="gal-hero-stats reveal">
-          <div class="gal-hero-stat">
-            <strong><span id="gal-photo-count">0</span></strong>
-            <span>Photographs</span>
-          </div>
-          <div class="gal-hero-stat">
-            <strong><span id="gal-cat-count">0</span></strong>
-            <span>Categories</span>
-          </div>
-          <div class="gal-hero-stat">
-            <strong>11</strong>
-            <span>Years Documented</span>
-          </div>
+  <main id="main">
+
+  <!-- Gallery hero -->
+  <section class="gl-x-hero" aria-labelledby="gl-title">
+    <div class="hx-wrap">
+      <div class="gl-x-hero-grid">
+        <div data-reveal>
+          <p class="hx-kicker">Life at CREST</p>
+          <h1 id="gl-title" class="gl-x-title">Moments &amp; <em>milestones.</em></h1>
+          <p class="gl-x-lead">Conferences and seminars, collaborative visits, group outings, and the moments that define life in the CREST Laboratory over the years.</p>
+        </div>
+        <div class="gl-x-stats" data-reveal>
+          <div class="gl-x-stat gl-x-stat--lead"><strong id="gal-photo-count">0</strong><span>Photographs</span></div>
+          <div class="gl-x-stat"><strong id="gal-cat-count">0</strong><span>Categories</span></div>
+          <div class="gl-x-stat"><strong>11</strong><span>Years documented</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════ 2. PHOTO WALL ═══════════ -->
-  <section id="gallery" class="gal-body section-padding">
+  <section id="gallery" class="hx-section gal-body">
     <div class="container">
 
       <!-- Category filters -->
-      <div class="gal-filters reveal" role="group" aria-label="Filter photographs by category">
+      <div class="gal-filters" data-reveal role="group" aria-label="Filter photographs by category">
         <button type="button" class="team-filter active" data-gfilter="all">All Photos <span class="gal-filter-count"></span></button>
         <button type="button" class="team-filter" data-gfilter="conferences">Conferences &amp; Seminars <span class="gal-filter-count"></span></button>
         <button type="button" class="team-filter" data-gfilter="engagements">Lab &amp; Visits <span class="gal-filter-count"></span></button>
@@ -115,7 +112,6 @@
 
       <!-- Empty state -->
       <div class="gallery-empty" id="gallery-empty" hidden>
-        <i class="fa-solid fa-compass"></i>
         <p>No photographs under this category</p>
         <small>Try a different filter to explore other categories.</small>
       </div>
@@ -123,40 +119,77 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
-  <footer class="footer">
-    <canvas id="footer-canvas"></canvas>
-    <div class="container footer-content">
-      <div class="footer-info">
-        <h2><i class="fa-solid fa-atom"></i> CREST Research Lab</h2>
-        <p>Chemical Reaction Engineering in Sustainable Transformations Laboratory has guided high-profile researchers under government and industrial support within the prestigious Indian Institute of Technology Madras ecosystem.</p>
-      </div>
-      <div class="footer-address">
-        <h4 class="footer-col-title">Mailing Address</h4>
-        <p>
-          Prof. Vinu Ravikrishnan<br>
-          Department of Chemical Engineering,<br>
-          Indian Institute of Technology Madras,<br>
-          Chennai &ndash; 600036, Tamil Nadu, India.
-        </p>
-      </div>
-      <div class="footer-contact">
-        <h4 class="footer-col-title">Contact Details</h4>
-        <p><i class="fa-solid fa-envelope"></i> <span class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></span></p>
-        <p><i class="fa-solid fa-phone"></i> +91-44-2257-4187</p>
-        <p><i class="fa-solid fa-clock"></i> Mon to Fri &nbsp;(9 AM &ndash; 5:30 PM)</p>
-      </div>
+  <footer class="hx-footer">
+    <div class="hx-currents">
+      <canvas id="footer-canvas" aria-hidden="true"></canvas>
+      <p class="hx-footer-mark"><span>Residue</span> <em>to</em> <span>resource.</span></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 CREST Research Laboratory. All Rights Reserved.</p>
-      <p class="footer-credit">Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Academic Digital Services</a></p>
+    <div class="hx-wrap">
+      <div class="hx-footer-card">
+        <div class="hx-footer-brand">
+          <img class="hx-footer-seal" src="images/IIT_Madras_Logo.svg" width="300" height="300" alt="IIT Madras logo" loading="lazy" decoding="async">
+          <p class="hx-footer-name">CREST Research Laboratory</p>
+          <p class="hx-footer-about"><span class="hx-acronym-inline"><b class="hx-acr">C</b>hemical <b class="hx-acr">R</b>eaction <b class="hx-acr">E</b>ngineering in <b class="hx-acr">S</b>ustainable <b class="hx-acr">T</b>ransformations</span>, Department of Chemical Engineering, Indian Institute of Technology Madras.</p>
+          <a class="hx-btn" href="/contact">Positions and contact</a>
+        </div>
+        <nav class="hx-footer-col hx-footer-explore" aria-label="Explore">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/pi">Principal Investigator</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/thrust-areas">Thrust Areas</a></li>
+            <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact &amp; Positions</a></li>
+          </ul>
+        </nav>
+        <div class="hx-footer-col">
+          <h2>Visit</h2>
+          <address>
+            Prof. Vinu Ravikrishnan<br>
+            Department of Chemical Engineering<br>
+            Indian Institute of Technology Madras<br>
+            Chennai 600036, Tamil Nadu, India
+          </address>
+        </div>
+        <div class="hx-footer-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></li>
+            <li><a href="tel:+914422574187">+91 44 2257 4187</a></li>
+            <li class="hx-footer-hours">Monday to Friday, 9 AM to 5:30 PM</li>
+          </ul>
+        </div>
+        <div class="hx-footer-profiles">
+          <h2>Profiles</h2>
+          <ul>
+            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=gAIc9hEAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+            <li><a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hx-footer-legal">
+        <p>&copy; 2026 CREST Research Laboratory, IIT Madras.</p>
+        <p><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a> <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">IIT Madras</a> <span>Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Dr. Hariprasad Narayanan</a></span></p>
+      </div>
     </div>
   </footer>
 
-  <script src="js/vendor/particles.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <script src="js/vendor/scrollreveal.min.js"></script>
   <script src="script.js"></script>
   <script src="lightbox.js"></script>
+  <script src="js/pages/home.js"></script>
   <script src="js/pages/gallery.js"></script>
 </body>
 </html>

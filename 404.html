@@ -8,22 +8,105 @@
   <title>Page not found | CREST Laboratory, IIT Madras</title>
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <!-- Self-contained on purpose: GitHub Pages serves this file at any missing
+       address, so every path is absolute and the styles live here. -->
   <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0f1a; color: #e8e4dc; font-family: Inter, system-ui, sans-serif; text-align: center; padding: 24px; }
-    h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 6vw, 3.2rem); margin: 0 0 12px; }
-    .code { color: #c9a86a; letter-spacing: .3em; font-size: .85rem; margin-bottom: 18px; }
-    p { color: #a9b0c2; max-width: 34rem; margin: 0 auto 28px; line-height: 1.6; }
-    a { display: inline-block; padding: 12px 26px; border: 1px solid #c9a86a; color: #c9a86a; text-decoration: none; border-radius: 999px; }
-    a:hover { background: #c9a86a; color: #0b0f1a; }
+    :root {
+      --ink: #1d1d1f; --muted: #5b5b60; --navy: #1a233d; --gold: #8a6d3f;
+      --hair: #e3e3e6; --panel: #f5f5f7; --panel-warm: #f8f4ec;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh; display: flex; flex-direction: column;
+      background: #fff; color: var(--ink); font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    header, footer { width: min(1180px, 100% - 44px); margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--hair); }
+    .brand { display: inline-flex; align-items: baseline; gap: 6px; color: var(--ink); text-decoration: none; font-size: 18px; }
+    .brand b { font-weight: 700; letter-spacing: -0.02em; }
+    .brand span { color: var(--muted); font-weight: 500; }
+    header img { width: 34px; height: 34px; }
+
+    main { flex: 1; display: grid; place-items: center; padding: clamp(48px, 8vw, 96px) 22px; }
+    .card {
+      position: relative; width: min(860px, 100%); padding: clamp(36px, 6vw, 72px);
+      border: 1px solid #ece3d2; border-radius: 40px; text-align: center; overflow: hidden;
+      background:
+        radial-gradient(110% 80% at 50% 0%, rgba(138, 109, 63, 0.14), transparent 62%),
+        linear-gradient(180deg, #fbf8f2, var(--panel-warm));
+      box-shadow: 0 40px 90px -60px rgba(29, 29, 31, 0.45);
+    }
+    .num {
+      margin: 0; font: 400 clamp(120px, 24vw, 240px)/0.8 var(--serif); letter-spacing: -0.04em;
+      color: transparent; -webkit-text-stroke: 1px rgba(138, 109, 63, 0.55);
+      background: linear-gradient(180deg, rgba(138, 109, 63, 0.18), rgba(138, 109, 63, 0)); -webkit-background-clip: text; background-clip: text;
+      user-select: none;
+    }
+    .kicker { margin: 18px 0 0; font: 600 12px/1.3 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    h1 { margin: 12px 0 0; font-weight: 700; font-size: clamp(34px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.04em; }
+    h1 em { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -0.02em; color: var(--gold); }
+    .lead { margin: 18px auto 0; max-width: 44ch; font-size: 18px; line-height: 1.6; color: #4a4a4f; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px;
+      background: var(--navy); color: #fff; text-decoration: none; font: 600 15px/1 var(--sans);
+      transition: transform 0.4s cubic-bezier(0.22, 0.7, 0.18, 1), background 0.3s;
+    }
+    .btn:hover { background: #111a30; transform: translateY(-1px); }
+    .links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 28px 0 0; padding: 0; }
+    .links a {
+      display: inline-flex; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--hair); background: #fff;
+      color: var(--ink); text-decoration: none; font: 500 14.5px/1.2 var(--sans); transition: border-color 0.3s;
+    }
+    .links a:hover { border-color: var(--gold); }
+    .links-title { margin: 32px 0 0; font-size: 14px; color: var(--muted); }
+
+    footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 22px 0 28px; border-top: 1px solid var(--hair); font-size: 14px; color: var(--muted); }
+    footer p { margin: 0; }
+    footer a { color: var(--ink); text-decoration: none; }
+    footer a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 560px) { .card { border-radius: 28px; } }
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
   </style>
 </head>
 <body>
+  <header>
+    <a class="brand" href="/"><b>CREST</b><span>Research Laboratory</span></a>
+    <img src="/images/IIT_Madras_Logo.svg" width="300" height="300" alt="IIT Madras logo">
+  </header>
+
   <main>
-    <div class="code">ERROR 404</div>
-    <h1>Page not found</h1>
-    <p>The page you are looking for has moved or no longer exists. Head back to the CREST Research Laboratory home page.</p>
-    <a href="/">Go to home page</a>
+    <div class="card">
+      <p class="num" aria-hidden="true">404</p>
+      <p class="kicker">Page not found</p>
+      <h1>This page has <em>moved on.</em></h1>
+      <p class="lead">The page you are looking for has moved or no longer exists. Head back to the CREST Research Laboratory home page, or pick a section below.</p>
+      <div class="actions">
+        <a class="btn" href="/">Go to home page</a>
+      </div>
+      <p class="links-title">Popular pages</p>
+      <ul class="links">
+        <li><a href="/pi">Principal Investigator</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/thrust-areas">Thrust Areas</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/facilities">Facilities</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
   </main>
+
+  <footer>
+    <p>&copy; 2026 CREST Research Laboratory, IIT Madras.</p>
+    <p><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a> &middot; <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">IIT Madras</a></p>
+  </footer>
 </body>
 </html>

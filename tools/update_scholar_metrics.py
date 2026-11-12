@@ -151,7 +151,7 @@ def build_patterns(cite_text: str, cite_target: int, h_index: int, as_of: str):
         ),
         # provenance line under the stats
         (
-            re.compile(r'(class="metrics-asof[^"]*"[^>]*>.*?as of )[A-Z][a-z]+ \d{4}', re.S),
+            re.compile(r'(class="[^"]*metrics-asof[^"]*"[^>]*>.*?as of )[A-Z][a-z]+ \d{4}', re.S),
             lambda m: f"{m.group(1)}{as_of}",
         ),
     ]
@@ -165,11 +165,20 @@ def current_citations(text: str) -> int | None:
     return int(m.group(1).replace(",", "")) if m else None
 
 
+def shown_metrics(text: str) -> tuple[int, int, str] | None:
+    """(citations, h-index, "Month YYYY") as a page currently displays them."""
+    c = current_citations(text)
+    h = re.search(r"<strong>(\d+)</strong>\s*<span>h&#8209;[Ii]ndex</span>", text)
+    a = re.search(r'class="[^"]*metrics-asof[^"]*"[^>]*>.*?as of ([A-Z][a-z]+ \d{4})', text, re.S)
+    return (c, int(h.group(1)), a.group(1)) if c and h and a else None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="report changes without writing")
     ap.add_argument("--citations", type=int, help="skip fetching; use this citation count")
     ap.add_argument("--h-index", type=int, help="skip fetching; use this h-index")
+    ap.add_argument("--as-of", help='month to show, e.g. "November 2026" (default: this month)')
     args = ap.parse_args()
 
     if args.citations and args.h_index:
@@ -197,7 +206,7 @@ def main() -> int:
         return 0
 
     cite_text, cite_target = display_citations(citations)
-    as_of = date.today().strftime("%B %Y")
+    as_of = args.as_of or date.today().strftime("%B %Y")
     patterns = build_patterns(cite_text, cite_target, h_index, as_of)
 
     total = 0

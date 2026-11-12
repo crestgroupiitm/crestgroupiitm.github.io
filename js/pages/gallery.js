@@ -404,6 +404,15 @@ const galleryItems = [
     imageUrl: G + '2025/IMG-20251103-WA0007.jpg'
   },
   {
+    id:'g12', category:'group',
+    title:'CREST Lab Group, Summer 2022',
+    description:'The research group of Prof. Vinu at IIT Madras in Summer 2022, linked to the Aalto University FICORE project on thermal conversion of challenging Indian and Finnish feedstocks with a focus on pyrolysis.',
+    location:'IIT Madras, Chennai', date:'Summer 2022',
+    imageUrl: G + 'Summer_2022/CREST group, Summer 2022.jpg',
+    link: 'https://ficore.aalto.fi/ficore/thermal-conversion-of-challenging-indian-and-finnish-feedstocks-with-a-focus-on-pyrolysis',
+    linkLabel: 'FICORE project, Aalto University'
+  },
+  {
     id:'g03', category:'group',
     title:'CREST Lab Group, December 2021',
     description:'Group photograph marking the end of a productive year despite global research disruptions.',
@@ -505,6 +514,7 @@ function renderGallery() {
         <span class="gal-cap-tag">${CATEGORY_LABELS[item.category]}</span>
         <span class="gal-cap-title gallery-card-title">${item.title}</span>
         <span class="gal-cap-meta">${item.location} &middot; ${item.date}</span>
+        ${item.link ? `<a class="gal-cap-link" href="${item.link}" target="_blank" rel="noopener noreferrer">${item.linkLabel || 'Read more'}</a>` : ''}
       </figcaption>
     </figure>
   `).join('');

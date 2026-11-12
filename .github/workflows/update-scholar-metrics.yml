@@ -1,13 +1,13 @@
 name: Update Google Scholar metrics
 
 # Refreshes the citation count and h-index on index.html, pi.html and
-# publications.html. Runs on the 1st of each month, and on demand from the
+# publications.html. Runs every Monday, and on demand from the
 # Actions tab. If Scholar can't be read the job leaves every file untouched
 # and still succeeds — a failed fetch must never break the site or the build.
 
 on:
   schedule:
-    - cron: "0 3 1 * *" # 03:00 UTC on the 1st of every month
+    - cron: "30 2 * * 1" # every Monday, 02:30 UTC (08:00 IST)
   workflow_dispatch: # manual "Run workflow" button
 
 permissions:

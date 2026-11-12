@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="robots" content="index, follow, noai, noimageai">
-  <meta name="theme-color" content="#0b0f1a">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://crestgroupiitm.github.io/facilities">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,34 +32,31 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Shared Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="facilities.css">
+  <script src="js/pages/home-head.js"></script>
 </head>
-<body>
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-
-  <!-- Ambient Light/Air Particles Background -->
-  <div id="particles-js"></div>
+<body class="hx hx-fc">
+  <a class="hx-skip" href="#main">Skip to content</a>
 
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar--on-dark">
+  <nav class="navbar navbar-alt hx-nav">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <i class="fa-solid fa-atom"></i>
-        <span>CREST Research Laboratory</span>
+      <a href="/" class="logo" aria-label="CREST Research Laboratory, home">
+        <span>CREST</span><span class="hx-logo-sub">Research Laboratory</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <span class="mobile-nav-logo"><i class="fa-solid fa-atom"></i> CREST Lab</span>
+        <span class="mobile-nav-logo">Menu</span>
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         <li><a href="/">Home</a></li>
         <li><a href="/pi">Principal Investigator</a></li>
@@ -67,57 +64,61 @@
         <li><a href="/thrust-areas">Thrust Areas</a></li>
         <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
         <li><a href="/publications">Publications</a></li>
-        <li><a href="/facilities" class="active">Facilities</a></li>
+        <li><a href="/facilities" class="active" aria-current="page">Facilities</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li class="mobile-nav-extra">
+          <p>Get in touch</p>
+          <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a>
+          <a href="tel:+914422574187">+91 44 2257 4187</a>
+        </li>
       </ul>
-      <div class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- ═══════════ 1. DARK HERO ═══════════ -->
-  <section class="fac-hero">
-    <div class="fac-hero-ambient" aria-hidden="true"></div>
-    <div class="container">
-      <div class="fac-hero-inner">
-        <span class="section-kicker section-kicker--light reveal">Infrastructure</span>
-        <h1 class="fac-hero-title reveal">Instruments of <em>discovery</em></h1>
-        <p class="fac-hero-sub reveal">State-of-the-art thermochemical reactor systems and advanced material characterization instrumentation, spanning 16 instruments across reactor systems, chromatography, thermal analysis, and spectroscopy.</p>
-        <div class="fac-hero-stats reveal">
-          <div class="fac-hero-stat">
-            <strong><span class="counter" data-target="16">0</span></strong>
-            <span>Instruments</span>
-          </div>
-          <div class="fac-hero-stat">
-            <strong><span class="counter" data-target="4">0</span></strong>
-            <span>Capability Groups</span>
-          </div>
-          <div class="fac-hero-stat">
-            <strong><span class="counter" data-target="2">0</span></strong>
-            <span>High-Pressure Reactors</span>
-          </div>
-          <div class="fac-hero-stat">
-            <strong><span class="counter" data-target="6">0</span></strong>
-            <span>Chromatography &amp; MS</span>
+  <main id="main">
+
+  <!-- Facilities hero -->
+  <section class="fc-x-hero" aria-labelledby="fc-title">
+    <div class="hx-wrap">
+      <div class="fc-x-hero-grid">
+        <div data-reveal>
+          <p class="hx-kicker">Infrastructure</p>
+          <h1 id="fc-title" class="fc-x-title">Instruments of <em>discovery.</em></h1>
+          <p class="fc-x-lead">State-of-the-art thermochemical reactor systems and advanced material characterization instrumentation, spanning 16 instruments across reactor systems, chromatography, thermal analysis, and spectroscopy.</p>
+          <div class="hx-actions">
+            <a class="hx-btn" href="#facilities-catalogue">Browse the instruments</a>
+            <a class="hx-link" href="/contact">Request access</a>
           </div>
         </div>
+        <figure class="fc-x-hero-photo" data-reveal>
+          <img src="Assests/images/Equipment photos/PY-2D-GCMS.jpg" width="1920" height="1440" fetchpriority="high" decoding="async" alt="Pyrolysis two-dimensional gas chromatography mass spectrometry system in the CREST Laboratory">
+          <figcaption>PY-2D-GC/MS, comprehensive two-dimensional analysis</figcaption>
+        </figure>
+      </div>
+      <div class="fc-x-stats" data-reveal data-countup>
+        <div class="fc-x-stat fc-x-stat--lead"><strong>16</strong><span>Instruments</span></div>
+        <div class="fc-x-stat"><strong>4</strong><span>Capability groups</span></div>
+        <div class="fc-x-stat"><strong>2</strong><span>High-pressure reactors</span></div>
+        <div class="fc-x-stat"><strong>6</strong><span>Chromatography &amp; MS</span></div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════ 2. INSTRUMENT GALLERY ═══════════ -->
-  <section class="fac-body section-padding" id="facilities-catalogue">
+  <section class="hx-section fac-body" id="facilities-catalogue">
     <div class="container">
 
-      <div class="fac-body-header reveal">
-        <span class="section-kicker">Facility Catalogue</span>
-        <h2>Laboratory Infrastructure</h2>
+      <div class="fac-body-header hx-section-head" data-reveal>
+        <p class="hx-kicker">Facility catalogue</p>
+        <h2 class="hx-h2">Laboratory infrastructure.</h2>
         <p>The CREST Laboratory combines custom-built thermochemical reactor platforms with analytical and synthesis infrastructure that supports feedstock conversion, catalyst development, and product characterization. Each instrument is integral to the lab's research in thermochemical conversion, catalyst characterisation, and bio-product analysis.</p>
       </div>
 
-      <div class="fac-filters reveal" role="group" aria-label="Filter instruments by capability">
+      <div class="fac-filters" data-reveal role="group" aria-label="Filter instruments by capability">
         <button type="button" class="team-filter active" data-filter="all">All <span class="fac-filter-count">16</span></button>
         <button type="button" class="team-filter" data-filter="reactors">Reactors &amp; Conversion <span class="fac-filter-count">3</span></button>
         <button type="button" class="team-filter" data-filter="chromatography">Chromatography &amp; MS <span class="fac-filter-count">6</span></button>
@@ -127,13 +128,13 @@
 
       <!-- ── Group 1: Reactors & Conversion Systems ── -->
       <div class="fac-group tm-group" data-fac-group="reactors">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Reactors &amp; Conversion Systems</h3>
           <span class="tm-group-count">3</span>
         </div>
         <div class="fac-grid">
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/High pressure stirred reactor - 2.jpg" alt="High Pressure Stirred Reactor" loading="lazy">
               <span class="fac-card-tag">Reactor System</span>
@@ -144,7 +145,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/High pressure stirred reactor - primarily for hydro-deoxygenation.jpg" alt="High Pressure Stirred Reactor for Hydro-deoxygenation" loading="lazy">
               <span class="fac-card-tag">Reactor System</span>
@@ -155,7 +156,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Glove box.jpg" alt="Inert Atmosphere Glove Box" loading="lazy">
               <span class="fac-card-tag">Inert Atmosphere</span>
@@ -171,13 +172,13 @@
 
       <!-- ── Group 2: Chromatography & Mass Spectrometry ── -->
       <div class="fac-group tm-group" data-fac-group="chromatography">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Chromatography &amp; Mass Spectrometry</h3>
           <span class="tm-group-count">6</span>
         </div>
         <div class="fac-grid">
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Gas chromatography-mass spectrometry (Shimadzu GCMS QP2020-Intergated with JHI-07 hybrid pyrolyzer).jpg" alt="Shimadzu GCMS QP2020 with JHI-07 Hybrid Pyrolyzer" loading="lazy">
               <span class="fac-card-tag">Py-GC/MS</span>
@@ -189,7 +190,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Pyrolysis gas chromatography-mass spectrometry (PY GCMS-Auto shot sampler).jpg" alt="Pyrolysis GC/MS with Auto Shot Sampler" loading="lazy">
               <span class="fac-card-tag">Py-GC/MS</span>
@@ -200,7 +201,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/PY-2D-GCMS.jpg" alt="PY-2D-GC/MS" loading="lazy">
               <span class="fac-card-tag">Py-GC/MS</span>
@@ -211,7 +212,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/High performance liquid chromatography.jpg" alt="High Performance Liquid Chromatography" loading="lazy">
               <span class="fac-card-tag">Chromatography</span>
@@ -222,7 +223,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Ion Chromatography.jpg" alt="Ion Chromatography System" loading="lazy">
               <span class="fac-card-tag">Chromatography</span>
@@ -233,7 +234,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Shimadzu liquid chromatography-mass spectrometry (LC-MS).jpg" alt="Shimadzu LC-MS System" loading="lazy">
               <span class="fac-card-tag">Mass Spectrometry</span>
@@ -250,13 +251,13 @@
 
       <!-- ── Group 3: Thermal Analysis & Calorimetry ── -->
       <div class="fac-group tm-group" data-fac-group="thermal">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Thermal Analysis &amp; Calorimetry</h3>
           <span class="tm-group-count">4</span>
         </div>
         <div class="fac-grid">
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Thermogravimetric analysis.jpg" alt="Thermogravimetric Analyzer" loading="lazy">
               <span class="fac-card-tag">Thermal Analysis</span>
@@ -267,7 +268,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Ash fusion tester.jpg" alt="Ash Fusion Tester" loading="lazy">
               <span class="fac-card-tag">Thermal Analysis</span>
@@ -278,7 +279,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Automatic bomb calorimeter.jpg" alt="Automatic Bomb Calorimeter" loading="lazy">
               <span class="fac-card-tag">Calorimetry</span>
@@ -289,7 +290,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/IKA C 200 semi-automatic bomb calorimeter.jpg" alt="IKA C 200 Semi-Automatic Bomb Calorimeter" loading="lazy">
               <span class="fac-card-tag">Calorimetry</span>
@@ -306,13 +307,13 @@
 
       <!-- ── Group 4: Composition & Surface Characterization ── -->
       <div class="fac-group tm-group" data-fac-group="composition">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Composition &amp; Surface Characterization</h3>
           <span class="tm-group-count">3</span>
         </div>
         <div class="fac-grid">
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/Elemental CHNS analyzer.jpg" alt="Elemental CHNS Analyzer" loading="lazy">
               <span class="fac-card-tag">Elemental Analysis</span>
@@ -323,7 +324,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/FTIR-ATR.jpg" alt="FTIR-ATR Spectrometer" loading="lazy">
               <span class="fac-card-tag">Spectroscopy</span>
@@ -334,7 +335,7 @@
             </div>
           </article>
 
-          <article class="fac-card equip-card reveal">
+          <article class="fac-card equip-card" data-reveal>
             <div class="fac-card-img equip-card-img">
               <img src="Assests/images/Equipment photos/BET Analyzer.jpg" alt="BET Surface Area Analyzer" loading="lazy">
               <span class="fac-card-tag">Surface Analysis</span>
@@ -349,58 +350,89 @@
       </div>
 
       <!-- ── Access & collaboration panel ── -->
-      <div class="fac-access alumni-panel reveal">
-        <div class="alumni-panel-icon"><i class="fa-solid fa-microscope"></i></div>
+      <div class="fac-access alumni-panel" data-reveal>
         <div>
-          <span class="section-kicker">Access &amp; Collaboration</span>
-          <h3>Use these facilities</h3>
+          <p class="hx-kicker">Access &amp; collaboration</p>
+          <h3>Use these facilities.</h3>
           <p>Academic groups and industry partners are welcome to discuss instrument access, contract characterisation, and joint research projects. Get in touch to talk through sample requirements, scheduling, and collaborative programmes with the CREST Laboratory.</p>
-          <a href="/contact" class="btn btn-primary">Contact the laboratory</a>
+          <a href="/contact" class="hx-btn">Contact the laboratory</a>
         </div>
       </div>
 
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
-  <footer class="footer">
-    <canvas id="footer-canvas"></canvas>
-    <div class="container footer-content">
-
-      <div class="footer-info">
-        <h2><i class="fa-solid fa-atom"></i> CREST Research Lab</h2>
-        <p>Chemical Reaction Engineering in Sustainable Transformations Laboratory has guided high-profile researchers under government and industrial support within the prestigious Indian Institute of Technology Madras ecosystem.</p>
-      </div>
-
-      <div class="footer-address">
-        <h4 class="footer-col-title">Mailing Address</h4>
-        <p>
-          Prof. Vinu Ravikrishnan<br>
-          Department of Chemical Engineering,<br>
-          Indian Institute of Technology Madras,<br>
-          Chennai &ndash; 600036, Tamil Nadu, India.
-        </p>
-      </div>
-
-      <div class="footer-contact">
-        <h4 class="footer-col-title">Contact Details</h4>
-        <p><i class="fa-solid fa-envelope"></i> <span class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></span></p>
-        <p><i class="fa-solid fa-phone"></i> +91-44-2257-4187</p>
-        <p><i class="fa-solid fa-clock"></i> Mon to Fri &nbsp;(9 AM &ndash; 5:30 PM)</p>
-      </div>
-
+  <footer class="hx-footer">
+    <div class="hx-currents">
+      <canvas id="footer-canvas" aria-hidden="true"></canvas>
+      <p class="hx-footer-mark"><span>Residue</span> <em>to</em> <span>resource.</span></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 CREST Research Laboratory. All Rights Reserved.</p>
-      <p class="footer-credit">Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Academic Digital Services</a></p>
+    <div class="hx-wrap">
+      <div class="hx-footer-card">
+        <div class="hx-footer-brand">
+          <img class="hx-footer-seal" src="images/IIT_Madras_Logo.svg" width="300" height="300" alt="IIT Madras logo" loading="lazy" decoding="async">
+          <p class="hx-footer-name">CREST Research Laboratory</p>
+          <p class="hx-footer-about"><span class="hx-acronym-inline"><b class="hx-acr">C</b>hemical <b class="hx-acr">R</b>eaction <b class="hx-acr">E</b>ngineering in <b class="hx-acr">S</b>ustainable <b class="hx-acr">T</b>ransformations</span>, Department of Chemical Engineering, Indian Institute of Technology Madras.</p>
+          <a class="hx-btn" href="/contact">Positions and contact</a>
+        </div>
+        <nav class="hx-footer-col hx-footer-explore" aria-label="Explore">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/pi">Principal Investigator</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/thrust-areas">Thrust Areas</a></li>
+            <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact &amp; Positions</a></li>
+          </ul>
+        </nav>
+        <div class="hx-footer-col">
+          <h2>Visit</h2>
+          <address>
+            Prof. Vinu Ravikrishnan<br>
+            Department of Chemical Engineering<br>
+            Indian Institute of Technology Madras<br>
+            Chennai 600036, Tamil Nadu, India
+          </address>
+        </div>
+        <div class="hx-footer-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></li>
+            <li><a href="tel:+914422574187">+91 44 2257 4187</a></li>
+            <li class="hx-footer-hours">Monday to Friday, 9 AM to 5:30 PM</li>
+          </ul>
+        </div>
+        <div class="hx-footer-profiles">
+          <h2>Profiles</h2>
+          <ul>
+            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=gAIc9hEAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+            <li><a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hx-footer-legal">
+        <p>&copy; 2026 CREST Research Laboratory, IIT Madras.</p>
+        <p><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a> <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">IIT Madras</a> <span>Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Dr. Hariprasad Narayanan</a></span></p>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/vendor/particles.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <script src="js/vendor/scrollreveal.min.js"></script>
   <script src="script.js"></script>
   <script src="lightbox.js"></script>
+  <script src="js/pages/home.js"></script>
   <script src="js/pages/facilities.js"></script>
 </body>
 </html>

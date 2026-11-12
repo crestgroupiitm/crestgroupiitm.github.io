@@ -337,21 +337,41 @@ function initFooterCanvas() {
     if (!canvas) return;
 
     const ctx    = canvas.getContext('2d');
-    const footer = canvas.closest('.footer');
+    // The canvas fills whatever holds it: the whole footer on most pages, the
+    // currents band at the top of the home page footer.
+    const footer = canvas.parentElement;
     let   particles = [], animId, time = 0;
 
-    const COUNT      = 200;
-    const SCALE      = 0.0028;
-    const SPEED      = 1.1;
-    const TIME_DELTA = 0.00025;
-    const PALETTE    = ['173,143,97', '212,185,140', '227,207,168', '141,154,184'];
+    // The home page has a white footer: draw the currents in ink and gold so they
+    // show on white, in wider, smoother streams with a gentle drift (ocean-current feel).
+    // Every other page keeps the original pale strands on the navy footer.
+    const LIGHT      = document.body.classList.contains('home') || document.body.classList.contains('hx');
+    const COUNT      = LIGHT ? 190 : 200;
+    const SCALE      = LIGHT ? 0.0016 : 0.0028;
+    const SPEED      = LIGHT ? 1.6 : 1.1;
+    const TIME_DELTA = LIGHT ? 0.00018 : 0.00025;
+    const DRIFT      = LIGHT ? 0.45 : 0;      // steady flow to the right, like a current
+    const TURN       = LIGHT ? 2.2 : 4;       // smaller value = longer, calmer swells
+    const MAX_ALPHA  = LIGHT ? 0.42 : 0.28;
+    const LINE_WIDTH = LIGHT ? 1.2 : 0.85;
+    const FADE       = 0.045;                   // dark footer: per-frame fade makes the trails
+    const TRAIL      = 55;                      // light footer: points kept per strand (trail length)
+    const LIFE       = LIGHT ? [260, 320] : [140, 220];  // frames: min + random range
+    const PALETTE    = LIGHT
+        ? ['26,35,61', '143,116,72', '173,143,97', '84,105,165']
+        : ['173,143,97', '212,185,140', '227,207,168', '141,154,184'];
+    const BG         = LIGHT ? '255, 255, 255' : '10, 16, 31';
+    const STILL      = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function resize() {
         canvas.width  = footer.offsetWidth;
         canvas.height = footer.offsetHeight;
-        // Seed the canvas with the footer background so trails look native
-        ctx.fillStyle = '#0a101f';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Dark footer: seed the canvas with the footer colour so trails look native.
+        // Light footer: the canvas stays transparent over the white footer.
+        if (!LIGHT) {
+            ctx.fillStyle = `rgb(${BG})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
     }
 
     function mkParticle(staggerAge) {
@@ -359,9 +379,10 @@ function initFooterCanvas() {
             x:      Math.random() * canvas.width,
             y:      Math.random() * canvas.height,
             age:    staggerAge ? Math.floor(Math.random() * 180) : 0,
-            maxAge: 140 + Math.random() * 220,
+            maxAge: LIFE[0] + Math.random() * LIFE[1],
             spd:    SPEED * (0.6 + Math.random() * 0.8),
-            col:    PALETTE[Math.floor(Math.random() * PALETTE.length)]
+            col:    PALETTE[Math.floor(Math.random() * PALETTE.length)],
+            trail:  []
         };
     }
 
@@ -370,31 +391,65 @@ function initFooterCanvas() {
         for (let i = 0; i < COUNT; i++) particles.push(mkParticle(true));
     }
 
+    // Light footer: faint per-frame fades are unreliable on white (GPU canvases round
+    // them away), so each strand keeps its recent path and is redrawn as a tapering line.
+    function drawTrail(p, alpha) {
+        const t = p.trail, n = t.length;
+        if (n < 2) return;
+        const parts = 4;                              // tail to head: lighter to darker
+        for (let k = 0; k < parts; k++) {
+            const a = Math.floor((k * (n - 1)) / parts), b = Math.floor(((k + 1) * (n - 1)) / parts);
+            if (b <= a) continue;
+            ctx.beginPath();
+            ctx.moveTo(t[a][0], t[a][1]);
+            for (let j = a + 1; j <= b; j++) ctx.lineTo(t[j][0], t[j][1]);
+            ctx.strokeStyle = `rgba(${p.col},${alpha * (0.35 + 0.65 * (k + 1) / parts)})`;
+            ctx.stroke();
+        }
+    }
+
     function animate() {
-        // Gentle fade instead of hard clear: creates the flowing trail effect
-        ctx.fillStyle = 'rgba(10, 16, 31, 0.045)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        if (LIGHT) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.lineWidth = LINE_WIDTH;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        } else {
+            // Gentle fade instead of hard clear: creates the flowing trail effect
+            ctx.fillStyle = `rgba(${BG}, ${FADE})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
 
         time += TIME_DELTA;
 
         for (let i = 0; i < particles.length; i++) {
             const p     = particles[i];
-            const angle = _perlin(p.x * SCALE, p.y * SCALE + time) * Math.PI * 4;
+            const angle = _perlin(p.x * SCALE, p.y * SCALE + time) * Math.PI * TURN;
             const ox    = p.x, oy = p.y;
 
-            p.x   += Math.cos(angle) * p.spd;
+            p.x   += Math.cos(angle) * p.spd + DRIFT * p.spd;
             p.y   += Math.sin(angle) * p.spd;
             p.age += 1;
 
             const life  = p.age / p.maxAge;
-            const alpha = (life < 0.12 ? life / 0.12 : 1 - life) * 0.28;
+            // Light footer: full strength for most of the strand's life, easing in and out;
+            // dark footer keeps its original rise-and-fade.
+            const alpha = LIGHT
+                ? Math.min(1, life / 0.1, (1 - life) / 0.25) * MAX_ALPHA
+                : (life < 0.12 ? life / 0.12 : 1 - life) * MAX_ALPHA;
 
-            ctx.beginPath();
-            ctx.moveTo(ox, oy);
-            ctx.lineTo(p.x, p.y);
-            ctx.strokeStyle = `rgba(${p.col},${alpha})`;
-            ctx.lineWidth   = 0.85;
-            ctx.stroke();
+            if (LIGHT) {
+                p.trail.push([p.x, p.y]);
+                if (p.trail.length > TRAIL) p.trail.shift();
+                drawTrail(p, alpha);
+            } else {
+                ctx.beginPath();
+                ctx.moveTo(ox, oy);
+                ctx.lineTo(p.x, p.y);
+                ctx.strokeStyle = `rgba(${p.col},${alpha})`;
+                ctx.lineWidth   = LINE_WIDTH;
+                ctx.stroke();
+            }
 
             if (p.age >= p.maxAge || p.x < -2 || p.x > canvas.width + 2 ||
                                       p.y < -2 || p.y > canvas.height + 2) {
@@ -405,15 +460,32 @@ function initFooterCanvas() {
         animId = requestAnimationFrame(animate);
     }
 
+    resize();
+    initParticles();
+
+    // Reduced motion: draw one settled frame of the currents and stop there
+    if (STILL) {
+        for (let n = 0; n < 160; n++) {
+            animate();                     // draws one frame and schedules the next...
+            cancelAnimationFrame(animId);  // ...which is cancelled straight away
+        }
+        return;
+    }
+
     const observer = new IntersectionObserver(entries => {
+        cancelAnimationFrame(animId);
         if (entries[0].isIntersecting) { animate(); }
-        else { cancelAnimationFrame(animId); }
     }, { threshold: 0.05 });
 
     observer.observe(footer);
-    resize();
-    initParticles();
-    window.addEventListener('resize', () => { resize(); initParticles(); });
+    // Restart only when the width really changes: on phones, scrolling shows and hides
+    // the address bar, which fires 'resize' without changing the width.
+    let lastWidth = footer.offsetWidth;
+    window.addEventListener('resize', () => {
+        if (footer.offsetWidth === lastWidth) return;
+        lastWidth = footer.offsetWidth;
+        resize(); initParticles();
+    });
 }
 
 document.addEventListener('DOMContentLoaded', initFooterCanvas);

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="robots" content="index, follow, noai, noimageai">
-  <meta name="theme-color" content="#0b0f1a">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://crestgroupiitm.github.io/thrust-areas">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,340 +32,283 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Shared Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="pi.css">
+  <link rel="stylesheet" href="thrust.css">
+  <script src="js/pages/home-head.js"></script>
 </head>
-<body>
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-
-  <!-- Ambient Background -->
-  <div id="particles-js"></div>
+<body class="hx hx-pi hx-ta">
+  <a class="hx-skip" href="#main">Skip to content</a>
 
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar--on-dark">
+  <nav class="navbar navbar-alt hx-nav">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <i class="fa-solid fa-atom"></i>
-        <span>CREST Research Laboratory</span>
+      <a href="/" class="logo" aria-label="CREST Research Laboratory, home">
+        <span>CREST</span><span class="hx-logo-sub">Research Laboratory</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <span class="mobile-nav-logo"><i class="fa-solid fa-atom"></i> CREST Lab</span>
+        <span class="mobile-nav-logo">Menu</span>
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         <li><a href="/">Home</a></li>
         <li><a href="/pi">Principal Investigator</a></li>
         <li><a href="/team">Team</a></li>
-        <li><a href="/thrust-areas" class="active">Thrust Areas</a></li>
+        <li><a href="/thrust-areas" class="active" aria-current="page">Thrust Areas</a></li>
         <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
         <li><a href="/publications">Publications</a></li>
         <li><a href="/facilities">Facilities</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li class="mobile-nav-extra">
+          <p>Get in touch</p>
+          <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a>
+          <a href="tel:+914422574187">+91 44 2257 4187</a>
+        </li>
       </ul>
-      <div class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- ═══════════ 1. DARK HERO ═══════════ -->
-  <section class="ta-hero">
-    <div class="ta-hero-ambient" aria-hidden="true"></div>
-    <div class="container">
-      <div class="ta-hero-inner">
-        <span class="section-kicker section-kicker--light reveal">Research Framework</span>
-        <h1 class="ta-hero-title reveal">Five domains of <em>inquiry</em></h1>
-        <p class="ta-hero-sub reveal">
-          Five interconnected domains of inquiry that define the research identity of the
-          CREST Laboratory, from fundamental reaction chemistry to pilot-scale process
-          engineering and environmental materials science.
-        </p>
-        <div class="ta-hero-stats reveal">
-          <div class="ta-hero-stat">
-            <strong><span class="counter" data-target="5">0</span></strong>
-            <span>Thrust Areas</span>
-          </div>
-          <div class="ta-hero-stat">
-            <strong><span class="counter" data-target="15">0</span><span class="plus">+</span></strong>
-            <span>Completed Projects</span>
-          </div>
-          <div class="ta-hero-stat">
-            <strong><span class="counter" data-target="172">0</span></strong>
-            <span>Publications</span>
-          </div>
-          <div class="ta-hero-stat">
-            <strong><span class="counter" data-target="4">0</span></strong>
-            <span>Patents Granted</span>
-          </div>
+  <main id="main">
+
+    <!-- 1. Hero -->
+    <section class="ta-x-hero" aria-labelledby="ta-title">
+      <div class="hx-wrap">
+        <div data-reveal>
+          <p class="hx-kicker">Research framework</p>
+          <h1 id="ta-title" class="ta-x-title">Five domains of <em>inquiry.</em></h1>
+          <p class="ta-x-lead">Five interconnected domains of inquiry that define the research identity of the CREST Laboratory, from fundamental reaction chemistry to pilot-scale process engineering and environmental materials science.</p>
+        </div>
+        <ol class="ta-x-index" data-reveal>
+          <li><a href="#thrust-01"><img src="Assests/images/home/area-01.jpg" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="ta-x-index-no">01</span><span class="ta-x-index-name">Chemical Transformations in Feedstock Conversion</span></a></li>
+          <li><a href="#thrust-02"><img src="Assests/images/home/area-02.jpg" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="ta-x-index-no">02</span><span class="ta-x-index-name">Reaction Pathways &amp; Kinetics of Thermal Processes</span></a></li>
+          <li><a href="#thrust-03"><img src="Assests/images/home/area-03.jpg" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="ta-x-index-no">03</span><span class="ta-x-index-name">Process Intensification &amp; Scale-up of Hydrothermal Liquefaction</span></a></li>
+          <li><a href="#thrust-04"><img src="Assests/images/home/area-04.jpg" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="ta-x-index-no">04</span><span class="ta-x-index-name">Thermal &amp; Electrical Ageing of Materials</span></a></li>
+          <li><a href="#thrust-05"><img src="Assests/images/home/area-05.jpg" width="1600" height="1000" alt="" loading="lazy" decoding="async"><span class="ta-x-index-no">05</span><span class="ta-x-index-name">Advanced Functional Materials for Environmental Decontamination</span></a></li>
+        </ol>
+        <div class="pi-x-stats ta-x-stats" data-reveal data-countup>
+          <div class="pi-x-stat pi-x-stat--lead"><strong>5</strong><span>Thrust areas</span></div>
+          <div class="pi-x-stat"><strong>15+</strong><span>Completed projects</span></div>
+          <div class="pi-x-stat"><strong>173</strong><span>Publications</span></div>
+          <div class="pi-x-stat pi-x-stat--lead"><strong>4</strong><span>Patents granted</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════ 2. BODY: sticky rail + five chapters ═══════════ -->
-  <section class="ta-body section-padding">
-    <div class="container pi-body-grid">
+    <!-- 2. Five chapters with a sticky contents rail -->
+    <section class="hx-section pi-x-body">
+      <div class="hx-wrap pi-x-body-grid">
+        <nav class="pi-x-rail" aria-label="Thrust areas">
+          <p class="pi-x-rail-title">On this page</p>
+          <a href="#thrust-01" class="pi-rail-link active"><span>01</span> Feedstock conversion</a>
+          <a href="#thrust-02" class="pi-rail-link"><span>02</span> Pathways &amp; kinetics</a>
+          <a href="#thrust-03" class="pi-rail-link"><span>03</span> Hydrothermal liquefaction</a>
+          <a href="#thrust-04" class="pi-rail-link"><span>04</span> Materials ageing</a>
+          <a href="#thrust-05" class="pi-rail-link"><span>05</span> Environmental materials</a>
+        </nav>
+        <div class="pi-x-main">
 
-      <nav class="pi-rail reveal" aria-label="Thrust areas">
-        <span class="pi-rail-title">On this page</span>
-        <a href="#thrust-01" class="pi-rail-link active">01 &nbsp;Feedstock Conversion</a>
-        <a href="#thrust-02" class="pi-rail-link">02 &nbsp;Pathways &amp; Kinetics</a>
-        <a href="#thrust-03" class="pi-rail-link">03 &nbsp;Hydrothermal Liquefaction</a>
-        <a href="#thrust-04" class="pi-rail-link">04 &nbsp;Materials Ageing</a>
-        <a href="#thrust-05" class="pi-rail-link">05 &nbsp;Environmental Materials</a>
-      </nav>
+          <article id="thrust-01" class="pi-x-block ta-x-chapter" data-reveal>
+            <p class="hx-kicker"><span class="pi-x-no">01</span>Feedstock Conversion &middot; Catalysis</p>
+            <h2 class="pi-x-title">Chemical Transformations in Feedstock Conversion</h2>
+            <figure class="ta-x-figure">
+              <img src="Assests/images/home/area-01.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Wood chips, shredded waste plastics, dried microalgae, coal and municipal solid waste in glass dishes, with a vial of bio-oil behind them">
+              <figcaption>Wood chips, waste plastics, microalgae, coal and municipal solid waste, and the bio-oil they can become.</figcaption>
+            </figure>
+            <p class="ta-x-lead-p">This thrust area focuses on the fundamental chemistry underlying the thermochemical and catalytic conversion of diverse organic feedstocks. The primary objective is to identify and understand the complex chemical transformations that occur when converting materials like lignocellulosic biomass, waste plastics, algae, coals, and municipal solid waste into valuable chemicals, fuel molecules, and bioproducts.</p>
+            <div class="ta-x-pair">
+              <div class="pi-x-card">
+                <h3 class="pi-x-card-title">The challenge</h3>
+                <p>The transition to a sustainable economy requires shifting away from fossil resources toward renewable and waste-derived carbon sources. However, these alternative feedstocks are highly heterogeneous and structurally complex. Lignocellulosic biomass, for instance, consists of intertwined cellulose, hemicellulose, and lignin, each with distinct thermal behaviors. Understanding the precise chemical pathways during thermal breakdown and subsequent catalytic upgrading is essential for maximizing product yield and quality.</p>
+              </div>
+              <div class="pi-x-card pi-x-card--warm">
+                <h3 class="pi-x-card-title">Our approach</h3>
+                <p>Our research takes a fundamental approach to deconstruct these complex processes. We investigate thermochemical conversion by analyzing the initial stages of thermal degradation to understand how primary fragments are formed. We evaluate the role of heterogeneous catalysts in directing chemical pathways, including cracking, deoxygenation, isomerization, and aromatization, to tailor the final product distribution across highly oxygenated biomass to hydrogen-rich plastics.</p>
+              </div>
+            </div>
+          </article>
 
-      <div class="ta-main">
+          <article id="thrust-02" class="pi-x-block ta-x-chapter" data-reveal>
+            <p class="hx-kicker"><span class="pi-x-no">02</span>Reaction Kinetics &middot; Pyrolysis</p>
+            <h2 class="pi-x-title">Reaction Pathways &amp; Kinetics of Thermal Processes</h2>
+            <figure class="ta-x-figure">
+              <img src="Assests/images/home/area-02.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Ball-and-stick models of cellobiose and levoglucosan with a gold reaction arrow between them">
+              <figcaption>Cellobiose, the repeat unit of cellulose, breaks down to levoglucosan, the main primary product of cellulose fast pyrolysis.</figcaption>
+            </figure>
+            <p class="ta-x-lead-p">This research area delves into the intricate reaction networks and kinetics associated with advanced thermal and catalytic conversion technologies. The focus is on unraveling the specific pathways involved in processes such as fast pyrolysis, hydropyrolysis, microwave-assisted pyrolysis, and hydrodeoxygenation.</p>
+            <div class="ta-x-pair">
+              <div class="pi-x-card">
+                <h3 class="pi-x-card-title">The challenge</h3>
+                <p>Thermochemical conversion processes are characterized by hundreds of simultaneous and sequential chemical reactions occurring over very short time scales. Identifying the key intermediates, determining the rate-determining steps, and understanding how reaction conditions like temperature, pressure, heating rate, catalyst presence, and hydrogen partial pressure influence the product distribution is a monumental analytical and computational challenge.</p>
+              </div>
+              <div class="pi-x-card pi-x-card--warm">
+                <h3 class="pi-x-card-title">Our approach</h3>
+                <p>We employ a combination of advanced experimental techniques and kinetic modeling to untangle these complex systems. Our work spans catalytic fast pyrolysis (investigating how catalyst acidity, pore size, and shape selectivity influence reaction pathways), catalytic hydropyrolysis (studying the synergistic effects of thermal cracking with hydrogenation), microwave-assisted pyrolysis (exploring unique volumetric heating mechanisms), and hydrodeoxygenation pathways for removing oxygen from biomass-derived intermediate streams.</p>
+              </div>
+            </div>
+          </article>
 
-        <!-- ── 01 ── -->
-        <article id="thrust-01" class="ta-chapter reveal">
-          <span class="ta-chapter-num" aria-hidden="true">01</span>
-          <span class="section-kicker">Feedstock Conversion &middot; Catalysis</span>
-          <h2 class="ta-chapter-title">Chemical Transformations in Feedstock Conversion</h2>
+          <article id="thrust-03" class="pi-x-block ta-x-chapter" data-reveal>
+            <p class="hx-kicker"><span class="pi-x-no">03</span>Hydrothermal Liquefaction &middot; Scale-up</p>
+            <h2 class="pi-x-title">Process Intensification &amp; Scale-up of Hydrothermal Liquefaction</h2>
+            <figure class="ta-x-figure">
+              <img src="Assests/images/home/area-03.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="A bench batch autoclave connected to a continuous coiled tubular reactor, feeding a graduated cylinder where dark bio-crude has settled below a pale aqueous phase">
+              <figcaption>From a bench batch autoclave to a continuous tubular reactor; bio-crude settles below the aqueous phase.</figcaption>
+            </figure>
+            <p class="ta-x-lead-p">This thrust area focuses on bridging the gap between fundamental research and industrial application for Hydrothermal Liquefaction (HTL). The core objective is the process intensification and scale-up of HTL technology to efficiently generate bio-crude and valuable chemicals from wet and complex feedstocks, including municipal solid wastes, plastics, and biomass agro-residues.</p>
+            <div class="ta-x-pair">
+              <div class="pi-x-card">
+                <h3 class="pi-x-card-title">The challenge</h3>
+                <p>Hydrothermal Liquefaction is a highly promising technology for converting wet biomass and waste streams into energy-dense bio-crude, as it eliminates the energy-intensive drying step required for other thermal processes. However, transitioning HTL from batch-scale laboratory experiments to continuous, pilot, and commercial scales presents significant engineering challenges, including handling high pressures and temperatures, managing complex multi-phase fluid dynamics, mitigating corrosion and reactor plugging, and optimizing heat integration.</p>
+              </div>
+              <div class="pi-x-card pi-x-card--warm">
+                <h3 class="pi-x-card-title">Our approach</h3>
+                <p>Our research focuses on overcoming engineering hurdles through process intensification and systematic scale-up strategies. We investigate novel reactor designs, mixing technologies, and heating strategies to enhance heat and mass transfer within the HTL environment. A major focus is the transition from batch to continuous flow systems, evaluating the rheological properties of diverse feedstock slurries and optimizing pumping and let-down systems. We rigorously test robustness using highly variable feedstocks such as MSW and mixed plastics at larger scales.</p>
+              </div>
+            </div>
+          </article>
 
-          <p class="ta-lead">
-            This thrust area focuses on the fundamental chemistry underlying the thermochemical and catalytic
-            conversion of diverse organic feedstocks. The primary objective is to identify and understand the
-            complex chemical transformations that occur when converting materials like lignocellulosic biomass,
-            waste plastics, algae, coals, and municipal solid waste into valuable chemicals, fuel molecules,
-            and bioproducts.
-          </p>
+          <article id="thrust-04" class="pi-x-block ta-x-chapter" data-reveal>
+            <p class="hx-kicker"><span class="pi-x-no">04</span>Materials Ageing &middot; Dielectrics</p>
+            <h2 class="pi-x-title">Thermal &amp; Electrical Ageing of Materials</h2>
+            <figure class="ta-x-figure">
+              <img src="Assests/images/home/area-04.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Six vials of lubricating oil from pale straw to dark brown, beside a clear epoxy block with a branched electrical tree grown from a needle electrode">
+              <figcaption>Lubricating oil darkening as it oxidises, and an electrical tree grown from a needle electrode in epoxy.</figcaption>
+            </figure>
+            <p class="ta-x-lead-p">This thrust area investigates the degradation mechanisms of critical industrial materials under operational stress. We focus on understanding the thermal and electrical ageing of lubricating oils and polymer composites under simulated real-world conditions, correlating ageing markers with the materials' structural and physicochemical properties.</p>
+            <div class="ta-x-pair">
+              <div class="pi-x-card">
+                <h3 class="pi-x-card-title">The challenge</h3>
+                <p>Materials deployed in industrial applications, particularly in power generation and heavy machinery, are subjected to harsh environments. Lubricating oils degrade due to high temperatures, oxidation, and shear forces, leading to loss of lubricity and potential equipment failure. Polymer composites used in electrical insulation undergo complex chemical changes when exposed to sustained electrical stress and thermal cycling. Predicting the remaining useful life of these materials requires a deep understanding of fundamental degradation pathways.</p>
+              </div>
+              <div class="pi-x-card pi-x-card--warm">
+                <h3 class="pi-x-card-title">Our approach</h3>
+                <p>Our research employs a comprehensive approach to study material degradation through simulated ageing environments using specialized test rigs that expose materials to precisely controlled, accelerated thermal and electrical stress profiles. We utilize advanced analytical techniques, including spectroscopy, chromatography, and thermal analysis, to identify specific chemical ageing markers. The core of our research is correlating these chemical changes with the macroscopic performance properties of the materials for predictive lifetime assessment.</p>
+              </div>
+            </div>
+          </article>
 
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h3>
-            <p>
-              The transition to a sustainable economy requires shifting away from fossil resources toward renewable
-              and waste-derived carbon sources. However, these alternative feedstocks are highly heterogeneous and
-              structurally complex. Lignocellulosic biomass, for instance, consists of intertwined cellulose,
-              hemicellulose, and lignin, each with distinct thermal behaviors. Understanding the precise chemical
-              pathways during thermal breakdown and subsequent catalytic upgrading is essential for maximizing
-              product yield and quality.
-            </p>
-          </div>
+          <article id="thrust-05" class="pi-x-block ta-x-chapter" data-reveal>
+            <p class="hx-kicker"><span class="pi-x-no">05</span>Environmental Remediation &middot; Advanced Materials</p>
+            <h2 class="pi-x-title">Advanced Functional Materials for Environmental Decontamination</h2>
+            <figure class="ta-x-figure">
+              <img src="Assests/images/home/area-05.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Six cuvettes of methylene blue fading from deep blue to clear beneath a violet near-UV light bar, beside a dish of pale-yellow photocatalyst powder">
+              <figcaption>Methylene blue fading as photocatalysis proceeds under near-UV light, beside the catalyst powder.</figcaption>
+            </figure>
+            <p class="ta-x-lead-p">This thrust area focuses on the design, synthesis, and application of novel functional materials and catalysts for advanced environmental remediation. The primary objective is to develop efficient technologies for environmental decontamination utilizing advanced oxidation processes, specifically photocatalysis and sonophotocatalysis, as well as high-capacity adsorption.</p>
+            <div class="ta-x-pair">
+              <div class="pi-x-card">
+                <h3 class="pi-x-card-title">The challenge</h3>
+                <p>The pervasive contamination of water bodies with recalcitrant organic pollutants, emerging contaminants such as pharmaceuticals and microplastics, and heavy metals poses a severe threat to human health and ecosystems. Conventional water treatment technologies often struggle to completely mineralize these complex pollutants or simply transfer them from one phase to another.</p>
+              </div>
+              <div class="pi-x-card pi-x-card--warm">
+                <h3 class="pi-x-card-title">Our approach</h3>
+                <p>We develop and evaluate novel materials and hybrid processes to tackle these challenging pollutants. Our work focuses on synthesizing advanced semiconductor materials, heterojunctions, and nanocomposites with tailored band gaps and enhanced charge separation to maximize reactive oxygen species generation under visible light. We investigate synergistic sonophotocatalysis to enhance mass transfer and generate additional radicals through cavitation. In parallel, we develop high-capacity, selective, and regenerable adsorption materials for targeted contaminant removal.</p>
+              </div>
+            </div>
+          </article>
 
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-compass"></i> Our Approach</h3>
-            <p>
-              Our research takes a fundamental approach to deconstruct these complex processes. We investigate
-              thermochemical conversion by analyzing the initial stages of thermal degradation to understand how
-              primary fragments are formed. We evaluate the role of heterogeneous catalysts in directing chemical
-              pathways, including cracking, deoxygenation, isomerization, and aromatization, to tailor the final
-              product distribution across highly oxygenated biomass to hydrogen-rich plastics.
-            </p>
-          </div>
-        </article>
-
-        <!-- ── 02 ── -->
-        <article id="thrust-02" class="ta-chapter reveal">
-          <span class="ta-chapter-num" aria-hidden="true">02</span>
-          <span class="section-kicker">Reaction Kinetics &middot; Pyrolysis</span>
-          <h2 class="ta-chapter-title">Reaction Pathways &amp; Kinetics of Thermal Processes</h2>
-
-          <p class="ta-lead">
-            This research area delves into the intricate reaction networks and kinetics associated with advanced
-            thermal and catalytic conversion technologies. The focus is on unraveling the specific pathways
-            involved in processes such as fast pyrolysis, hydropyrolysis, microwave-assisted pyrolysis, and
-            hydrodeoxygenation.
-          </p>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h3>
-            <p>
-              Thermochemical conversion processes are characterized by hundreds of simultaneous and sequential
-              chemical reactions occurring over very short time scales. Identifying the key intermediates,
-              determining the rate-determining steps, and understanding how reaction conditions like temperature,
-              pressure, heating rate, catalyst presence, and hydrogen partial pressure influence the product
-              distribution is a monumental analytical and computational challenge.
-            </p>
-          </div>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-compass"></i> Our Approach</h3>
-            <p>
-              We employ a combination of advanced experimental techniques and kinetic modeling to untangle these
-              complex systems. Our work spans catalytic fast pyrolysis (investigating how catalyst acidity, pore
-              size, and shape selectivity influence reaction pathways), catalytic hydropyrolysis (studying the
-              synergistic effects of thermal cracking with hydrogenation), microwave-assisted pyrolysis (exploring
-              unique volumetric heating mechanisms), and hydrodeoxygenation pathways for removing oxygen from
-              biomass-derived intermediate streams.
-            </p>
-          </div>
-        </article>
-
-        <!-- ── 03 ── -->
-        <article id="thrust-03" class="ta-chapter reveal">
-          <span class="ta-chapter-num" aria-hidden="true">03</span>
-          <span class="section-kicker">Hydrothermal Liquefaction &middot; Scale-up</span>
-          <h2 class="ta-chapter-title">Process Intensification &amp; Scale-up of Hydrothermal Liquefaction</h2>
-
-          <p class="ta-lead">
-            This thrust area focuses on bridging the gap between fundamental research and industrial application
-            for Hydrothermal Liquefaction (HTL). The core objective is the process intensification and scale-up
-            of HTL technology to efficiently generate bio-crude and valuable chemicals from wet and complex
-            feedstocks, including municipal solid wastes, plastics, and biomass agro-residues.
-          </p>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h3>
-            <p>
-              Hydrothermal Liquefaction is a highly promising technology for converting wet biomass and waste
-              streams into energy-dense bio-crude, as it eliminates the energy-intensive drying step required
-              for other thermal processes. However, transitioning HTL from batch-scale laboratory experiments to
-              continuous, pilot, and commercial scales presents significant engineering challenges, including
-              handling high pressures and temperatures, managing complex multi-phase fluid dynamics, mitigating
-              corrosion and reactor plugging, and optimizing heat integration.
-            </p>
-          </div>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-compass"></i> Our Approach</h3>
-            <p>
-              Our research focuses on overcoming engineering hurdles through process intensification and systematic
-              scale-up strategies. We investigate novel reactor designs, mixing technologies, and heating strategies
-              to enhance heat and mass transfer within the HTL environment. A major focus is the transition from
-              batch to continuous flow systems, evaluating the rheological properties of diverse feedstock slurries
-              and optimizing pumping and let-down systems. We rigorously test robustness using highly variable
-              feedstocks such as MSW and mixed plastics at larger scales.
-            </p>
-          </div>
-        </article>
-
-        <!-- ── 04 ── -->
-        <article id="thrust-04" class="ta-chapter reveal">
-          <span class="ta-chapter-num" aria-hidden="true">04</span>
-          <span class="section-kicker">Materials Ageing &middot; Dielectrics</span>
-          <h2 class="ta-chapter-title">Thermal &amp; Electrical Ageing of Materials</h2>
-
-          <p class="ta-lead">
-            This thrust area investigates the degradation mechanisms of critical industrial materials under
-            operational stress. We focus on understanding the thermal and electrical ageing of lubricating oils
-            and polymer composites under simulated real-world conditions, correlating ageing markers with the
-            materials' structural and physicochemical properties.
-          </p>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h3>
-            <p>
-              Materials deployed in industrial applications, particularly in power generation and heavy machinery,
-              are subjected to harsh environments. Lubricating oils degrade due to high temperatures, oxidation,
-              and shear forces, leading to loss of lubricity and potential equipment failure. Polymer composites
-              used in electrical insulation undergo complex chemical changes when exposed to sustained electrical
-              stress and thermal cycling. Predicting the remaining useful life of these materials requires a deep
-              understanding of fundamental degradation pathways.
-            </p>
-          </div>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-compass"></i> Our Approach</h3>
-            <p>
-              Our research employs a comprehensive approach to study material degradation through simulated ageing
-              environments using specialized test rigs that expose materials to precisely controlled, accelerated
-              thermal and electrical stress profiles. We utilize advanced analytical techniques, including
-              spectroscopy, chromatography, and thermal analysis, to identify specific chemical ageing markers.
-              The core of our research is correlating these chemical changes with the macroscopic performance
-              properties of the materials for predictive lifetime assessment.
-            </p>
-          </div>
-        </article>
-
-        <!-- ── 05 ── -->
-        <article id="thrust-05" class="ta-chapter reveal">
-          <span class="ta-chapter-num" aria-hidden="true">05</span>
-          <span class="section-kicker">Environmental Remediation &middot; Advanced Materials</span>
-          <h2 class="ta-chapter-title">Advanced Functional Materials for Environmental Decontamination</h2>
-
-          <p class="ta-lead">
-            This thrust area focuses on the design, synthesis, and application of novel functional materials and
-            catalysts for advanced environmental remediation. The primary objective is to develop efficient
-            technologies for environmental decontamination utilizing advanced oxidation processes, specifically
-            photocatalysis and sonophotocatalysis, as well as high-capacity adsorption.
-          </p>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h3>
-            <p>
-              The pervasive contamination of water bodies with recalcitrant organic pollutants, emerging
-              contaminants such as pharmaceuticals and microplastics, and heavy metals poses a severe threat to
-              human health and ecosystems. Conventional water treatment technologies often struggle to completely
-              mineralize these complex pollutants or simply transfer them from one phase to another.
-            </p>
-          </div>
-
-          <div class="ta-sub">
-            <h3 class="ta-sub-title"><i class="fa-solid fa-compass"></i> Our Approach</h3>
-            <p>
-              We develop and evaluate novel materials and hybrid processes to tackle these challenging pollutants.
-              Our work focuses on synthesizing advanced semiconductor materials, heterojunctions, and nanocomposites
-              with tailored band gaps and enhanced charge separation to maximize reactive oxygen species generation
-              under visible light. We investigate synergistic sonophotocatalysis to enhance mass transfer and
-              generate additional radicals through cavitation. In parallel, we develop high-capacity, selective,
-              and regenerable adsorption materials for targeted contaminant removal.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ 3. DARK CROSS-LINK BAND ═══════════ -->
-  <section class="ta-cta">
-    <div class="ta-cta-ambient" aria-hidden="true"></div>
-    <div class="container">
-      <div class="ta-cta-inner reveal">
-        <h2>Explore the outcomes of this research</h2>
-        <div class="ta-cta-links">
-          <a href="/publications" class="btn-gold"><i class="fa-solid fa-book-open"></i> Publications</a>
-          <a href="/research" class="btn-ghost btn-ghost--on-dark"><i class="fa-solid fa-shield-halved"></i> Patents &amp; Technology Transfer</a>
-          <a href="/facilities" class="btn-ghost btn-ghost--on-dark"><i class="fa-solid fa-flask"></i> Laboratory Facilities</a>
+          <p class="hx-fig-note">Illustrations are conceptual 3D renders made in Blender. Molecular structures from PubChem 3D conformers.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
-    <canvas id="footer-canvas"></canvas>
-    <div class="container footer-content">
-      <div class="footer-info">
-        <h2><i class="fa-solid fa-atom"></i> CREST Research Lab</h2>
-        <p>Chemical Reaction Engineering in Sustainable Transformations Laboratory has guided high-profile researchers under government and industrial support within the prestigious Indian Institute of Technology Madras ecosystem.</p>
+    <!-- 3. Where the work goes next -->
+    <section class="hx-section ta-x-cta-wrap">
+      <div class="hx-wrap">
+        <div class="ta-x-cta" data-reveal>
+          <p class="hx-kicker">Outcomes</p>
+          <h2 class="hx-h2">Explore the outcomes of this research.</h2>
+          <ul class="ta-x-cta-links">
+            <li><a href="/publications"><span class="ta-x-cta-k">Papers</span><strong>Publications</strong><span class="ta-x-cta-d">173 journal articles, with books, chapters and proceedings</span></a></li>
+            <li><a href="/research"><span class="ta-x-cta-k">Translation</span><strong>Patents &amp; technology transfer</strong><span class="ta-x-cta-d">Granted patents and technologies taken to industry</span></a></li>
+            <li><a href="/facilities"><span class="ta-x-cta-k">Infrastructure</span><strong>Laboratory facilities</strong><span class="ta-x-cta-d">Reactors and analytical instruments behind the work</span></a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-address">
-        <h4 class="footer-col-title">Mailing Address</h4>
-        <p>
-          Prof. Vinu Ravikrishnan<br>
-          Department of Chemical Engineering,<br>
-          Indian Institute of Technology Madras,<br>
-          Chennai &ndash; 600036, Tamil Nadu, India.
-        </p>
-      </div>
-      <div class="footer-contact">
-        <h4 class="footer-col-title">Contact Details</h4>
-        <p><i class="fa-solid fa-envelope"></i> <span class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></span></p>
-        <p><i class="fa-solid fa-phone"></i> +91-44-2257-4187</p>
-        <p><i class="fa-solid fa-clock"></i> Mon to Fri &nbsp;(9 AM &ndash; 5:30 PM)</p>
-      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="hx-footer">
+    <div class="hx-currents">
+      <canvas id="footer-canvas" aria-hidden="true"></canvas>
+      <p class="hx-footer-mark"><span>Residue</span> <em>to</em> <span>resource.</span></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 CREST Research Laboratory. All Rights Reserved.</p>
-      <p class="footer-credit">Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Academic Digital Services</a></p>
+    <div class="hx-wrap">
+      <div class="hx-footer-card">
+        <div class="hx-footer-brand">
+          <img class="hx-footer-seal" src="images/IIT_Madras_Logo.svg" width="300" height="300" alt="IIT Madras logo" loading="lazy" decoding="async">
+          <p class="hx-footer-name">CREST Research Laboratory</p>
+          <p class="hx-footer-about"><span class="hx-acronym-inline"><b class="hx-acr">C</b>hemical <b class="hx-acr">R</b>eaction <b class="hx-acr">E</b>ngineering in <b class="hx-acr">S</b>ustainable <b class="hx-acr">T</b>ransformations</span>, Department of Chemical Engineering, Indian Institute of Technology Madras.</p>
+          <a class="hx-btn" href="/contact">Positions and contact</a>
+        </div>
+        <nav class="hx-footer-col hx-footer-explore" aria-label="Explore">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/pi">Principal Investigator</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/thrust-areas">Thrust Areas</a></li>
+            <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact &amp; Positions</a></li>
+          </ul>
+        </nav>
+        <div class="hx-footer-col">
+          <h2>Visit</h2>
+          <address>
+            Prof. Vinu Ravikrishnan<br>
+            Department of Chemical Engineering<br>
+            Indian Institute of Technology Madras<br>
+            Chennai 600036, Tamil Nadu, India
+          </address>
+        </div>
+        <div class="hx-footer-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></li>
+            <li><a href="tel:+914422574187">+91 44 2257 4187</a></li>
+            <li class="hx-footer-hours">Monday to Friday, 9 AM to 5:30 PM</li>
+          </ul>
+        </div>
+        <div class="hx-footer-profiles">
+          <h2>Profiles</h2>
+          <ul>
+            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=gAIc9hEAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+            <li><a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hx-footer-legal">
+        <p>&copy; 2026 CREST Research Laboratory, IIT Madras.</p>
+        <p><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a> <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">IIT Madras</a> <span>Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Dr. Hariprasad Narayanan</a></span></p>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/vendor/particles.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <script src="js/vendor/scrollreveal.min.js"></script>
   <script src="script.js"></script>
+  <script src="js/pages/home.js"></script>
   <script src="js/pages/thrust-areas.js"></script>
 </body>
 </html>

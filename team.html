@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="robots" content="index, follow, noai, noimageai">
-  <meta name="theme-color" content="#0b0f1a">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://crestgroupiitm.github.io/team">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,80 +32,104 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Shared Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="team.css">
+  <script src="js/pages/home-head.js"></script>
 </head>
-<body>
-
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-
-  <!-- Ambient Light/Air Particles Background -->
-  <div id="particles-js"></div>
+<body class="hx hx-team">
+  <a class="hx-skip" href="#main">Skip to content</a>
 
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar--on-dark">
+  <nav class="navbar navbar-alt hx-nav">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <i class="fa-solid fa-atom"></i>
-        <span>CREST Research Laboratory</span>
+      <a href="/" class="logo" aria-label="CREST Research Laboratory, home">
+        <span>CREST</span><span class="hx-logo-sub">Research Laboratory</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <span class="mobile-nav-logo"><i class="fa-solid fa-atom"></i> CREST Lab</span>
+        <span class="mobile-nav-logo">Menu</span>
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         <li><a href="/">Home</a></li>
         <li><a href="/pi">Principal Investigator</a></li>
-        <li><a href="/team" class="active">Team</a></li>
+        <li><a href="/team" class="active" aria-current="page">Team</a></li>
         <li><a href="/thrust-areas">Thrust Areas</a></li>
         <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
         <li><a href="/publications">Publications</a></li>
         <li><a href="/facilities">Facilities</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li class="mobile-nav-extra">
+          <p>Get in touch</p>
+          <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a>
+          <a href="tel:+914422574187">+91 44 2257 4187</a>
+        </li>
       </ul>
-      <div class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- Team Hero: midnight editorial -->
-  <section class="team-hero">
-    <div class="team-hero-ambient" aria-hidden="true"></div>
-    <div class="container team-hero-inner">
-      <span class="section-kicker section-kicker--light reveal">Our People</span>
-      <h1 class="team-hero-title reveal">The minds behind the <em>mission</em></h1>
-      <p class="team-hero-sub reveal">The CREST Laboratory has built a strong academic mentoring culture around rigorous research training, translational problem solving, and long-term scholar development, guiding researchers from early-stage exposure to advanced thesis work in thermochemical engineering, catalysis, and sustainability-focused innovation.</p>
+  <main id="main">
 
-      <div class="team-hero-stats reveal">
-        <div class="team-hero-stat"><strong><span class="counter" data-target="27">0</span></strong><span>Current Members</span></div>
-        <div class="team-hero-stat"><strong><span class="counter" data-target="6">0</span></strong><span>Ph.D. Scholars</span></div>
-        <div class="team-hero-stat"><strong><span class="counter" data-target="4">0</span></strong><span>M.Tech. Students</span></div>
-        <div class="team-hero-stat"><strong><span class="counter" data-target="2">0</span></strong><span>M.S. Researchers</span></div>
+  <!-- Team hero -->
+  <section class="tm-x-hero" aria-labelledby="tm-title">
+    <div class="hx-wrap">
+      <div class="tm-x-hero-text" data-reveal>
+        <p class="hx-kicker">Our people</p>
+        <h1 id="tm-title" class="tm-x-title">The minds behind the <em>mission.</em></h1>
+        <p class="tm-x-lead">The CREST Laboratory has built a strong academic mentoring culture around rigorous research training, translational problem solving, and long-term scholar development, guiding researchers from early-stage exposure to advanced thesis work in thermochemical engineering, catalysis, and sustainability-focused innovation.</p>
+        <div class="hx-actions">
+          <a class="hx-btn" href="#team-members">Meet the team</a>
+          <a class="hx-link" href="#alumni">Alumni network</a>
+        </div>
+      </div>
+      <figure class="tm-x-group" data-reveal>
+        <img src="Assests/images/team/group-2025-main.jpg" width="1600" height="900" fetchpriority="high" decoding="async" alt="The CREST Laboratory group, 2025">
+        <figcaption>The CREST group, 2025</figcaption>
+      </figure>
+      <div class="tm-x-years" data-reveal>
+        <p class="tm-x-years-title"><span class="hx-kicker">The group over the years</span><a class="hx-link" href="/gallery">Gallery</a></p>
+        <ol>
+            <li><a href="/gallery"><img src="Assests/images/team/group-2015.jpg" width="900" height="506" loading="lazy" decoding="async" alt="CREST group photo, August 2015"><span>2015</span></a></li>
+            <li><a href="/gallery"><img src="Assests/images/team/group-2017.jpg" width="900" height="675" loading="lazy" decoding="async" alt="CREST group photo, January 2017"><span>2017</span></a></li>
+            <li><a href="/gallery"><img src="Assests/images/team/group-2018.jpg" width="900" height="675" loading="lazy" decoding="async" alt="CREST group photo, August 2018"><span>2018</span></a></li>
+            <li><a href="/gallery"><img src="Assests/images/team/group-2019.jpg" width="900" height="675" loading="lazy" decoding="async" alt="CREST group photo, July 2019"><span>2019</span></a></li>
+            <li><a href="/gallery"><img src="Assests/images/team/group-2021.jpg" width="900" height="674" loading="lazy" decoding="async" alt="CREST group photo, December 2021"><span>2021</span></a></li>
+            <li><a href="/gallery"><img src="Assests/images/team/group-2025-plant.jpg" width="900" height="675" loading="lazy" decoding="async" alt="CREST group photo, 2025, at the pilot plant"><span>2025</span></a></li>
+        </ol>
+      </div>
+      <div class="tm-x-stats" data-reveal data-countup>
+        <div class="tm-x-stat tm-x-stat--lead"><strong>27</strong><span>Current members</span></div>
+        <div class="tm-x-stat"><strong>6</strong><span>Ph.D. scholars</span></div>
+        <div class="tm-x-stat"><strong>4</strong><span>M.Tech. students</span></div>
+        <div class="tm-x-stat"><strong>2</strong><span>M.S. researchers</span></div>
+        <div class="tm-x-stat tm-x-stat--lead"><strong>27</strong><span>Alumni listed</span></div>
       </div>
     </div>
   </section>
 
   <!-- Current Members: grouped editorial roster -->
-  <section id="team-members" class="team-body section-padding">
+  <section id="team-members" class="hx-section team-body">
     <div class="container">
 
-      <div class="team-body-header reveal">
-        <span class="section-kicker">Laboratory Roster</span>
-        <h2>Current Members</h2>
-        <p>Researchers currently driving the CREST Laboratory&rsquo;s programs, from postdoctoral fellows to project staff.</p>
-      </div>
+      <header class="hx-section-head" data-reveal>
+        <p class="hx-kicker">Laboratory roster</p>
+        <h2 class="hx-h2">Current members.</h2>
+        <p class="hx-section-lead">Researchers currently driving the CREST Laboratory&rsquo;s programs, from postdoctoral fellows to project staff.</p>
+      </header>
 
       <!-- Cohort filter pills -->
-      <div class="team-filters reveal">
+      <div class="team-filters" data-reveal>
         <button type="button" class="team-filter active" data-filter="all">All &middot; 27</button>
         <button type="button" class="team-filter" data-filter="postdoc">Postdoctoral &middot; 5</button>
         <button type="button" class="team-filter" data-filter="phd">Ph.D. &middot; 6</button>
@@ -116,15 +140,15 @@
 
       <!-- ====== POSTDOCTORAL RESEARCHERS ====== -->
       <div class="tm-group" data-role-group="postdoc">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Postdoctoral Researchers</h3>
           <span class="tm-group-count">05</span>
         </div>
-        <div class="tm-grid-v2 reveal">
+        <div class="tm-grid-v2" data-reveal>
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>PM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/prabu-m.jpg" width="800" height="1000" alt="Prabu M" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Prabu M</h4>
                 <span class="member-role">Postdoctoral Researcher</span>
@@ -136,7 +160,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>AS</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/arun-sathyan.jpg" width="800" height="1000" alt="Arun Sathyan" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Arun Sathyan</h4>
                 <span class="member-role">Postdoctoral Researcher</span>
@@ -148,7 +172,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>PK</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/pritam-kumar.jpg" width="800" height="1000" alt="Dr. Pritam Kumar" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Dr. Pritam Kumar</h4>
                 <span class="member-role">Postdoctoral Researcher</span>
@@ -160,7 +184,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>HS</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/harisankar-subramanian.jpg" width="800" height="1000" alt="Harisankar Subramanian" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Harisankar Subramanian</h4>
                 <span class="member-role">Postdoctoral Researcher</span>
@@ -173,7 +197,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>MM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/mariappan-m.jpg" width="800" height="1000" alt="Dr. Mariappan M" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Dr. Mariappan M</h4>
                 <span class="member-role">Postdoctoral Researcher</span>
@@ -189,15 +213,15 @@
 
       <!-- ====== PH.D. SCHOLARS ====== -->
       <div class="tm-group" data-role-group="phd">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Ph.D. Scholars</h3>
           <span class="tm-group-count">06</span>
         </div>
-        <div class="tm-grid-v2 reveal">
+        <div class="tm-grid-v2" data-reveal>
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>AM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/ajay-mugundan.jpg" width="800" height="1000" alt="C Ajay Mugundan" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">C Ajay Mugundan</h4>
                 <span class="member-role">Ph.D. Scholar</span>
@@ -209,7 +233,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>CS</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/charushree-sivakumar.jpg" width="800" height="1000" alt="Charushree Sivakumar" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Charushree Sivakumar</h4>
                 <span class="member-role">Ph.D. Scholar</span>
@@ -221,7 +245,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>AR</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/abdul-rahman.jpg" width="800" height="1000" alt="Abdul Rahman S" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Abdul Rahman S</h4>
                 <span class="member-role">Ph.D. Scholar</span>
@@ -233,7 +257,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>GS</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/giridara-srinivaas.jpg" width="800" height="1000" alt="Giridara Srinivaas M S" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Giridara Srinivaas M S</h4>
                 <span class="member-role">Ph.D. Scholar</span>
@@ -245,7 +269,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>MP</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/manikandan-p-m.jpg" width="800" height="1000" alt="Manikandan P M" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Manikandan P M</h4>
                 <span class="member-role">Ph.D. Scholar</span>
@@ -257,7 +281,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>AC</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/anusha-halageri.jpg" width="800" height="1000" alt="Anusha Chandrappa Halageri" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Anusha Chandrappa Halageri</h4>
                 <span class="member-role">Ph.D. Scholar</span>
@@ -272,15 +296,15 @@
 
       <!-- ====== M.S. (RESEARCH) SCHOLARS ====== -->
       <div class="tm-group" data-role-group="ms">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>M.S. (Research) Scholars</h3>
           <span class="tm-group-count">02</span>
         </div>
-        <div class="tm-grid-v2 reveal">
+        <div class="tm-grid-v2" data-reveal>
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>K</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/kalaiyarasan.jpg" width="800" height="1000" alt="Kalaiyarasan" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Kalaiyarasan</h4>
                 <span class="member-role">M.S. Scholar</span>
@@ -293,7 +317,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>GP</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/guru-prasaad.jpg" width="800" height="1000" alt="V C Guru Prasaad" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">V C Guru Prasaad</h4>
                 <span class="member-role">M.S. Scholar</span>
@@ -308,15 +332,15 @@
 
       <!-- ====== M.TECH. STUDENTS ====== -->
       <div class="tm-group" data-role-group="mtech">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>M.Tech. Students</h3>
           <span class="tm-group-count">04</span>
         </div>
-        <div class="tm-grid-v2 reveal">
+        <div class="tm-grid-v2" data-reveal>
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>RP</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/ramprasad-n-s.jpg" width="800" height="1000" alt="N S Ramprasad" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">N S Ramprasad</h4>
                 <span class="member-role">M.Tech. Scholar</span>
@@ -328,7 +352,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>MK</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/mayank-kalsariya.jpg" width="800" height="1000" alt="Mayank Kalsariya" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Mayank Kalsariya</h4>
                 <span class="member-role">M.Tech. Scholar</span>
@@ -340,7 +364,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>SA</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/shazia-ali.jpg" width="800" height="1000" alt="Shazia Ali" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Shazia Ali</h4>
                 <span class="member-role">M.Tech. Scholar</span>
@@ -352,7 +376,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>AG</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/aditya-g-m.jpg" width="800" height="1000" alt="Aditya G M" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Aditya G M</h4>
                 <span class="member-role">M.Tech. Scholar</span>
@@ -367,15 +391,15 @@
 
       <!-- ====== PROJECT SCIENTISTS & STAFF ====== -->
       <div class="tm-group" data-role-group="project">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Project Scientists &amp; Staff</h3>
           <span class="tm-group-count">10</span>
         </div>
-        <div class="tm-grid-v2 reveal">
+        <div class="tm-grid-v2" data-reveal>
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>BM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/balajii-muthusamy.jpg" width="800" height="1000" alt="Balajii Muthusamy" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Balajii Muthusamy</h4>
                 <span class="member-role">Sr. Project Scientist</span>
@@ -387,7 +411,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>SK</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/saalu-kesavulu.jpg" width="800" height="1000" alt="Saalu Kesavulu" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Saalu Kesavulu</h4>
                 <span class="member-role">Sr. Research Engineer</span>
@@ -399,7 +423,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>SS</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/santhosh-srinivasan.jpg" width="800" height="1000" alt="Santhosh Srinivasan" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Santhosh Srinivasan</h4>
                 <span class="member-role">Project Scientist</span>
@@ -411,7 +435,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>SP</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/shikha-pandey.jpg" width="800" height="1000" alt="Shikha Pandey" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Shikha Pandey</h4>
                 <span class="member-role">Project Scientist</span>
@@ -423,7 +447,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>YC</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/yash-chaudhari.jpg" width="800" height="1000" alt="Yash Nitin Chaudhari" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Yash Nitin Chaudhari</h4>
                 <span class="member-role">Project Associate</span>
@@ -435,7 +459,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>KV</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/varshit-manohar.jpg" width="800" height="1000" alt="Kakarapalli Varshit Murali Manohar" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Kakarapalli Varshit Murali Manohar</h4>
                 <span class="member-role">Project Associate</span>
@@ -447,7 +471,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>GN</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/gayathri-n.jpg" width="800" height="1000" alt="Gayathri N" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Gayathri N</h4>
                 <span class="member-role">Project Associate</span>
@@ -459,7 +483,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>AM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/aswin-mani.jpg" width="800" height="1000" alt="Aswin Mani" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Aswin Mani</h4>
                 <span class="member-role">Project Associate</span>
@@ -471,7 +495,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>BM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/b-muthukumar.jpg" width="800" height="1000" alt="B. Muthukumar" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">B. Muthukumar</h4>
                 <span class="member-role">Project Associate</span>
@@ -483,7 +507,7 @@
 
           <div class="member-card">
             <div class="member-top">
-              <div class="member-avatar"><span>KM</span></div>
+              <div class="member-avatar member-avatar--photo"><img src="Assests/images/team/khizar-shaikh.jpg" width="800" height="1000" alt="Khizar Ahmed Mohammed Hanif Shaikh" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="member-name">Khizar Ahmed Mohammed Hanif Shaikh</h4>
                 <span class="member-role">Project Associate</span>
@@ -498,14 +522,14 @@
 
       <!-- ====== ALUMNI ====== -->
       <!-- ═══════════ ALUMNI NETWORK ═══════════ -->
-      <div id="alumni" class="alum-header reveal">
-        <span class="section-kicker">Alumni Network</span>
-        <h2>Where CREST scholars go next</h2>
+      <div id="alumni" class="alum-header" data-reveal>
+        <p class="hx-kicker">Alumni network</p>
+        <h2 class="hx-h2">Where CREST scholars go next.</h2>
         <p>Graduates of the CREST Laboratory, including doctoral, masters, postdoctoral, and project researchers, now contribute across academia, national laboratories, and industry worldwide.</p>
         <div class="alum-stats">
           <div class="alum-stat">
-            <strong>24</strong>
-            <span>Alumni Listed</span>
+            <strong>27</strong>
+            <span>Alumni listed</span>
           </div>
           <div class="alum-stat">
             <strong>5</strong>
@@ -514,7 +538,7 @@
         </div>
       </div>
 
-      <div class="alum-filters reveal" role="group" aria-label="Filter alumni by cohort">
+      <div class="alum-filters" data-reveal role="group" aria-label="Filter alumni by cohort">
         <button type="button" class="team-filter active" data-alum-filter="all">All &middot; 27</button>
         <button type="button" class="team-filter" data-alum-filter="postdoc">Postdoctoral &middot; 5</button>
         <button type="button" class="team-filter" data-alum-filter="phd">Ph.D. &middot; 9</button>
@@ -525,11 +549,11 @@
 
       <!-- Postdoctoral Alumni -->
       <div class="alum-group" data-alum-group="postdoc">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Postdoctoral Alumni</h3>
           <span class="tm-group-count">05</span>
         </div>
-        <div class="alum-grid reveal">
+        <div class="alum-grid" data-reveal>
           <div class="alum-card">
             <div class="alum-top">
               <div class="member-avatar member-avatar--sm"><span>LG</span></div>
@@ -580,11 +604,11 @@
 
       <!-- Ph.D. Alumni -->
       <div class="alum-group" data-alum-group="phd">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Ph.D. Alumni</h3>
           <span class="tm-group-count">09</span>
         </div>
-        <div class="alum-grid reveal">
+        <div class="alum-grid" data-reveal>
           <div class="alum-card">
             <div class="alum-top">
               <div class="member-avatar member-avatar--sm"><span>BR</span></div>
@@ -650,7 +674,7 @@
           </div>
           <div class="alum-card">
             <div class="alum-top">
-              <div class="member-avatar member-avatar--sm"><span>MT</span></div>
+              <div class="member-avatar member-avatar--sm member-avatar--photo"><img src="Assests/images/team/mahendra-tiwari.jpg" width="800" height="1000" alt="Dr. Mahendra Tiwari" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="alum-name">Dr. Mahendra Tiwari</h4>
                 <span class="alum-years">Ph.D. Scholar, now at the University of Houston, USA</span>
@@ -659,7 +683,7 @@
           </div>
           <div class="alum-card">
             <div class="alum-top">
-              <div class="member-avatar member-avatar--sm"><span>SP</span></div>
+              <div class="member-avatar member-avatar--sm member-avatar--photo"><img src="Assests/images/team/subhan-pal.jpg" width="800" height="1000" alt="Subhan Kumar Pal" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="alum-name">Subhan Kumar Pal</h4>
                 <span class="alum-years">Ph.D. Scholar, now at IIT Kanpur</span>
@@ -671,11 +695,11 @@
 
       <!-- M.S. Alumni -->
       <div class="alum-group" data-alum-group="ms">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>M.S. Alumni</h3>
           <span class="tm-group-count">01</span>
         </div>
-        <div class="alum-grid reveal">
+        <div class="alum-grid" data-reveal>
           <div class="alum-card">
             <div class="alum-top">
               <div class="member-avatar member-avatar--sm"><span>PN</span></div>
@@ -690,11 +714,11 @@
 
       <!-- M.Tech. Alumni -->
       <div class="alum-group" data-alum-group="mtech">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>M.Tech. Alumni</h3>
           <span class="tm-group-count">03</span>
         </div>
-        <div class="alum-grid reveal">
+        <div class="alum-grid" data-reveal>
           <div class="alum-card">
             <div class="alum-top">
               <div class="member-avatar member-avatar--sm"><span>TM</span></div>
@@ -727,11 +751,11 @@
 
       <!-- Project Staff Alumni -->
       <div class="alum-group" data-alum-group="project">
-        <div class="tm-group-head reveal">
+        <div class="tm-group-head" data-reveal>
           <h3>Project Scientists &amp; Staff Alumni</h3>
           <span class="tm-group-count">09</span>
         </div>
-        <div class="alum-grid reveal">
+        <div class="alum-grid" data-reveal>
           <div class="alum-card">
             <div class="alum-top">
               <div class="member-avatar member-avatar--sm"><span>RS</span></div>
@@ -806,7 +830,7 @@
           </div>
           <div class="alum-card">
             <div class="alum-top">
-              <div class="member-avatar member-avatar--sm"><span>PB</span></div>
+              <div class="member-avatar member-avatar--sm member-avatar--photo"><img src="Assests/images/team/pragadeshwar-babu.jpg" width="800" height="1000" alt="Pragadeshwar Babu M V" loading="lazy" decoding="async"></div>
               <div>
                 <h4 class="alum-name">Pragadeshwar Babu M V</h4>
                 <span class="alum-years">Project Scientist (2023 to 2025), now M.S. at KAUST</span>
@@ -816,24 +840,23 @@
         </div>
       </div>
 
-      <p class="alum-note reveal">Are you a CREST alumnus with updated details? Write to <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Alumni%20Directory%20Update%20-%20CREST%20Laboratory"></a></p>
+      <p class="alum-note" data-reveal>Are you a CREST alumnus with updated details? Write to <a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2" data-subject="Alumni%20Directory%20Update%20-%20CREST%20Laboratory"></a></p>
 
     </div>
   </section>
 
   <!-- Student Honors: midnight recognition wall -->
-  <section id="awards" class="team-awards">
-    <div class="team-awards-ambient" aria-hidden="true"></div>
+  <section id="awards" class="hx-section team-awards">
     <div class="container">
-      <div class="team-awards-header reveal">
-        <span class="section-kicker section-kicker--light">Recognition Archive</span>
-        <h2>Student Honors &amp; Awards</h2>
+      <div class="team-awards-header" data-reveal>
+        <p class="hx-kicker">Recognition</p>
+        <h2 class="hx-h2">Student honours and awards.</h2>
         <p>Student and project-team recognitions reflect the laboratory&rsquo;s strength in thesis quality, national competitions, sustainability innovation, and interdisciplinary engineering research.</p>
       </div>
 
       <div class="honor-wall">
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Mahendra Tiwari <span>Ph.D.</span></h4>
@@ -841,7 +864,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Vallabh S. Prabhudesai &amp; Subhan Pal <span>Ph.D.</span></h4>
@@ -849,7 +872,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Susan Mondal <span>M.Tech.</span></h4>
@@ -857,7 +880,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>S. Harisankar <span>Ph.D.</span></h4>
@@ -865,7 +888,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>R. Bharathi Raja <span>Ph.D.</span></h4>
@@ -873,7 +896,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Panchal Nikhilkumar Rajnikantbhai <span>M.S.</span></h4>
@@ -881,7 +904,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>J.V. Jayarama Krishna <span>Ph.D.</span></h4>
@@ -889,7 +912,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>J. Nallasivam &amp; P. Francis Prashanth <span>Project Scientists</span></h4>
@@ -897,7 +920,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>S. Harisankar <span>Ph.D.</span></h4>
@@ -905,7 +928,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Ribhu Gautam <span>Ph.D.</span></h4>
@@ -913,7 +936,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Busigari Rajasekhar Reddy <span>Ph.D.</span></h4>
@@ -921,7 +944,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Daniel Viju <span>Dual Degree (B.Tech./M.Tech.)</span></h4>
@@ -929,7 +952,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Dadi V. Suriapparao <span>M.S.</span></h4>
@@ -937,7 +960,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Anand Kumar Tripathi <span>M.S.</span></h4>
@@ -945,7 +968,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Vaishakh Nair <span>Ph.D.</span></h4>
@@ -953,7 +976,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Piyali Dhar <span>Ph.D.</span></h4>
@@ -961,7 +984,7 @@
           </div>
         </div>
 
-        <div class="honor-cell reveal">
+        <div class="honor-cell" data-reveal>
           <i class="fa-solid fa-trophy"></i>
           <div>
             <h4>Swetha Pendyala <span>M.Tech.</span></h4>
@@ -973,44 +996,76 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
-  <footer class="footer">
-    <canvas id="footer-canvas"></canvas>
-    <div class="container footer-content">
-
-      <div class="footer-info">
-        <h2><i class="fa-solid fa-atom"></i> CREST Research Lab</h2>
-        <p>Chemical Reaction Engineering in Sustainable Transformations Laboratory has guided high-profile researchers under government and industrial support within the prestigious Indian Institute of Technology Madras ecosystem.</p>
-      </div>
-
-      <div class="footer-address">
-        <h4 class="footer-col-title">Mailing Address</h4>
-        <p>
-          Prof. Vinu Ravikrishnan<br>
-          Department of Chemical Engineering,<br>
-          Indian Institute of Technology Madras,<br>
-          Chennai &ndash; 600036, Tamil Nadu, India.
-        </p>
-      </div>
-
-      <div class="footer-contact">
-        <h4 class="footer-col-title">Contact Details</h4>
-        <p><i class="fa-solid fa-envelope"></i> <span class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></span></p>
-        <p><i class="fa-solid fa-phone"></i> +91-44-2257-4187</p>
-        <p><i class="fa-solid fa-clock"></i> Mon to Fri &nbsp;(9 AM &ndash; 5:30 PM)</p>
-      </div>
-
+  <footer class="hx-footer">
+    <div class="hx-currents">
+      <canvas id="footer-canvas" aria-hidden="true"></canvas>
+      <p class="hx-footer-mark"><span>Residue</span> <em>to</em> <span>resource.</span></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 CREST Research Laboratory. All Rights Reserved.</p>
-      <p class="footer-credit">Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Academic Digital Services</a></p>
+    <div class="hx-wrap">
+      <div class="hx-footer-card">
+        <div class="hx-footer-brand">
+          <img class="hx-footer-seal" src="images/IIT_Madras_Logo.svg" width="300" height="300" alt="IIT Madras logo" loading="lazy" decoding="async">
+          <p class="hx-footer-name">CREST Research Laboratory</p>
+          <p class="hx-footer-about"><span class="hx-acronym-inline"><b class="hx-acr">C</b>hemical <b class="hx-acr">R</b>eaction <b class="hx-acr">E</b>ngineering in <b class="hx-acr">S</b>ustainable <b class="hx-acr">T</b>ransformations</span>, Department of Chemical Engineering, Indian Institute of Technology Madras.</p>
+          <a class="hx-btn" href="/contact">Positions and contact</a>
+        </div>
+        <nav class="hx-footer-col hx-footer-explore" aria-label="Explore">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/pi">Principal Investigator</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/thrust-areas">Thrust Areas</a></li>
+            <li><a href="/research">Patents &amp; Tech. Transfer</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact &amp; Positions</a></li>
+          </ul>
+        </nav>
+        <div class="hx-footer-col">
+          <h2>Visit</h2>
+          <address>
+            Prof. Vinu Ravikrishnan<br>
+            Department of Chemical Engineering<br>
+            Indian Institute of Technology Madras<br>
+            Chennai 600036, Tamil Nadu, India
+          </address>
+        </div>
+        <div class="hx-footer-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="#" class="email-protect" data-mx="bmkuY2EubXRpaUB1bml2"></a></li>
+            <li><a href="tel:+914422574187">+91 44 2257 4187</a></li>
+            <li class="hx-footer-hours">Monday to Friday, 9 AM to 5:30 PM</li>
+          </ul>
+        </div>
+        <div class="hx-footer-profiles">
+          <h2>Profiles</h2>
+          <ul>
+            <li><a href="https://scholar.google.com/citations?hl=en&amp;user=gAIc9hEAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0002-9757-8225" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+            <li><a href="https://www.researchgate.net/profile/Ravikrishnan-Vinu" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/vinu-ravikrishnan-471b637/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hx-footer-legal">
+        <p>&copy; 2026 CREST Research Laboratory, IIT Madras.</p>
+        <p><a href="https://che.iitm.ac.in" target="_blank" rel="noopener noreferrer">Department of Chemical Engineering</a> <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer">IIT Madras</a> <span>Designed by <a href="https://hariprasad-narayanan.github.io/#about" target="_blank" rel="noopener noreferrer">Dr. Hariprasad Narayanan</a></span></p>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/vendor/particles.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <script src="js/vendor/scrollreveal.min.js"></script>
   <script src="script.js"></script>
+  <script src="js/pages/home.js"></script>
   <script src="js/pages/team.js"></script>
 </body>
 </html>
