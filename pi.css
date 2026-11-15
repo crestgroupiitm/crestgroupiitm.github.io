@@ -218,3 +218,6 @@ body.hx-pi .pi-x-readmore a {
 }
 body.hx-pi .pi-x-readmore a::after { content: "\2197"; margin-left: 6px; color: var(--gold); }
 body.hx-pi .pi-x-readmore a:hover { border-color: var(--gold); }
+
+body.hx-pi .pi-x-aka { margin: 8px 0 0; font-size: 15px; color: var(--muted); }
+body.hx-pi .pi-x-aka strong { color: var(--ink); font-weight: 600; }
