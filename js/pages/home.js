@@ -18,7 +18,9 @@
                 e.target.classList.add('is-in');
                 io.unobserve(e.target);
             });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        // threshold 0: reveal as soon as any part enters. A ratio threshold never fires
+        // for blocks taller than the screen allows (e.g. a 36-card list on a phone).
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
         reveals.forEach((el) => io.observe(el));
     }
 
