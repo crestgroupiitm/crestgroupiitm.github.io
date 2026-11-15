@@ -208,3 +208,15 @@ body.hx-team .alum-web:hover { border-color: var(--gold); }
 body.hx-team .alum-stat strong { white-space: nowrap; }
 @media (max-width: 1100px) { body.hx-team .alum-grid--rich { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 680px) { body.hx-team .alum-grid--rich { grid-template-columns: minmax(0, 1fr); } }
+
+/* Current members: smaller photos (client request) - five cards per row and a
+   shorter frame, so faces stay clear but the photo no longer dominates the card */
+body.hx-team .tm-grid-v2 { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+body.hx-team .tm-grid-v2 .member-avatar { aspect-ratio: 1 / 1; border-radius: 14px; }
+body.hx-team .tm-grid-v2 .member-avatar--photo img { object-position: 50% 22%; }
+body.hx-team .tm-grid-v2 .member-name { font-size: 16.5px; }
+body.hx-team .tm-grid-v2 .member-focus { font-size: 14px; }
+@media (max-width: 1200px) { body.hx-team .tm-grid-v2 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1000px) { body.hx-team .tm-grid-v2 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) { body.hx-team .tm-grid-v2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
+@media (max-width: 460px) { body.hx-team .tm-grid-v2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
