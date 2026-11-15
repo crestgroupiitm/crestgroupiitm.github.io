@@ -12,7 +12,7 @@ body.hx-ta .ta-x-lead { margin: 24px 0 0; max-width: 62ch; font-size: 18px; line
 /* five areas as picture tiles that jump to each chapter */
 body.hx-ta .ta-x-index {
   list-style: none; margin: clamp(40px, 5vw, 64px) 0 0; padding: 0;
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
 }
 body.hx-ta .ta-x-index a {
   display: flex; flex-direction: column; height: 100%; overflow: hidden;
